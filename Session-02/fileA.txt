@@ -1,2 +1,3 @@
 A Lorem ipsum template
 My new geography app
+The continents with their countries
