@@ -78,8 +78,8 @@ internal class ProgramOne
               t.Hours,
               t.Minutes);
         Console.WriteLine("Answer 6: " + answer);
+        Console.ReadLine();
 
-        
         //7.Write a C# program to convert from celsius degrees
         //to Kelvin and Fahrenheit.
 
