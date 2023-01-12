@@ -3,6 +3,7 @@
 using Session_04;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 
 internal class ProgramOne
 {
@@ -44,11 +45,11 @@ internal class ProgramOne
         //a gender (string)(for example female) and displays something
         //like: "You are female and look younger than 20
         int age = 20;
-        string gender = "Frmale";
+        string gender = "female";
         Console.WriteLine("You are " + gender + " and look younger than " + age);
         Console.ReadLine();
 
-        //Write a C# program that takes an integer representing
+        //5.Write a C# program that takes an integer representing
         //seconds (for example 45678) and converts it to :
 
         int seconds = 45678;
@@ -66,10 +67,19 @@ internal class ProgramOne
         Console.WriteLine(years);
         Console.ReadLine();
 
+        //6.Rewrite Program #5 using .Net Libraries
 
+        TimeSpan t = TimeSpan.FromSeconds(45678);
+        string answer = string.Format(
+              CultureInfo.CurrentCulture,
+              "{0} years, {1} days, {2} hours, {3} minutes",
+              t.Days / 365,
+              (t.Days - (t.Days / 365) * 365) - ((t.Days - (t.Days / 365) * 365) / 30) * 30,
+              t.Hours,
+              t.Minutes);
+        Console.WriteLine("Answer 6: " + answer);
 
-
-
+        
         //7.Write a C# program to convert from celsius degrees
         //to Kelvin and Fahrenheit.
 
