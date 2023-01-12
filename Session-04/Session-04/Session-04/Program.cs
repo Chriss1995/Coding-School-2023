@@ -2,6 +2,7 @@
 
 using Session_04;
 using System.ComponentModel;
+using System.Diagnostics;
 
 internal class ProgramOne
 {
@@ -39,7 +40,7 @@ internal class ProgramOne
         Console.WriteLine(result5);
         Console.ReadLine();
 
-        //Write a C# program that assigns an age (number) (for example 20) and
+        //4.Write a C# program that assigns an age (number) (for example 20) and
         //a gender (string)(for example female) and displays something
         //like: "You are female and look younger than 20
         int age = 20;
@@ -47,6 +48,37 @@ internal class ProgramOne
         Console.WriteLine("You are " + gender + " and look younger than " + age);
         Console.ReadLine();
 
+        //Write a C# program that takes an integer representing
+        //seconds (for example 45678) and converts it to :
 
+        int seconds = 45678;
+        //Minutes
+        int minutes = seconds / 60;
+        Console.WriteLine(minutes);
+        //Hours
+        int hours = minutes / 60;
+        Console.WriteLine(hours);
+        // Days
+        int days = hours / 24;
+        Console.WriteLine(days);
+        //Years
+        int years = days / 365;
+        Console.WriteLine(years);
+        Console.ReadLine();
+
+
+
+
+
+        //7.Write a C# program to convert from celsius degrees
+        //to Kelvin and Fahrenheit.
+
+        double celsius = 10.5;
+        Console.WriteLine("Celsius degrees are:" + celsius);
+        double kelvin = celsius + 273;
+        Console.WriteLine("Kelvin degrees are:" + kelvin);
+        double fahrenheit = celsius * 18 / 10 + 32;
+        Console.WriteLine("Fahrenheit degrees are:" + fahrenheit);
+        Console.ReadLine();
     }
 }
