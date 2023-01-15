@@ -1,2 +1,11 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿//1.Write a C# program that reverses a given string (your name)
+using Session_05;
+
+string Input = "Chrissanthi";
+StringReversal c = new StringReversal();
+string result = StringReversal.Reversion(Input);
+Console.WriteLine(result);
+Console.ReadLine();
+
+
+
