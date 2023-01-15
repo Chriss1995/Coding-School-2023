@@ -9,11 +9,11 @@ namespace Session_05
 {
     internal class Addition
     {
-        static int Add(int num1)
+       public static int Add(int num1)
         {
             int i, sum = 0;_= num1;
             for (i = 0; i <= num1; i++)
-            { sum = sum + 1; }
+            { sum = sum + i; }
             return sum;
         }
       

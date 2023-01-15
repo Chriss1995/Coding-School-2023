@@ -11,4 +11,23 @@ Console.ReadLine();
 // gives them the possibility to choose between computing the sum
 // and computing the product of 1,…,n.
 
+Console.WriteLine("Give me a number.");
+int number = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Choose between");
+Console.WriteLine("true. Sum");
+Console.WriteLine("false. Factoral");
+bool s = Convert.ToBoolean(Console.ReadLine());
+int res = 0;
+if(s)
+{
+    Addition d = new Addition();
+    res = Addition.Add(number);
+}
+else
+{
+    Factorial e = new Factorial();
+    res = Factorial.Fact(number);
+}
+Console.WriteLine("The result is:" + res);
+Console.ReadLine();
 

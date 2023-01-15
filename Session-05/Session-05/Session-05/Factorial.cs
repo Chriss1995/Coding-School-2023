@@ -9,9 +9,9 @@ namespace Session_05
     internal class Factorial
 
     {
-        static int Fact(int num2)
+        public static int Fact(int num2)
         {
-            int i, num2, fact;
+            int i,_= num2, fact;
             fact = num2;
             for (i = num2 - 1; i >= 1; i--)
             {
