@@ -46,14 +46,35 @@ Console.ReadLine();
 //from Array2 and display the results in a new Array.
 //Array1: [2, 4, 9, 12]
 //Array2: [1, 3, 7, 10]
-int[] first = { 2, 4, 9, 12 };
-int[] second = { 1, 3, 7, 10 };
-for(int i=1; i < first.Length; i++)
+//int[] array1 = { 2, 4, 9, 12 };
+//int[] array2 = { 1, 3, 7, 10 };
+//for(int i=1; i < array1.Length; i++)
+//{
+//for (int j= 1; j <array2.Length; j++ )
+//{
+//int[] newarray = array1[i] * array2[j];
+//Console.WriteLine(newarray);
+//}
+//}
+
+//Write a C# program to sort the given array of integers from the lowest to the
+//highest number.
+//• Array: [ 0, -2, 1, 20, -31, 50 , -4, 17, 89, 100 ]
+int[] third = { 0, -2, 1, 20, -32, 50, -4, 17, 89, 100 };
+int temp;
+for(int k=0; k < third.Length-1; k++)
 {
-    for (int j= 1; j <second.Length; j++ )
+    for (int m = k + 1; m < third.Length; m++)
     {
-        int[] result2 = first[i] * second[j];
-        Console.WriteLine(result);
+        if (third[k] > third[m])
+        {
+            temp = third[k];
+            third[k] = third[m];
+            third[m] = temp;
+        }
     }
 }
-
+foreach(int value in third)
+{
+    Console.WriteLine(value + " ");
+}
