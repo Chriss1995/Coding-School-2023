@@ -13,9 +13,9 @@ namespace Session_05
         {
             if (num3 <= 1) return false;
             int i;
-            for (i = 2; i < num3; i++)
+            for (i = 2; i < num3/2; i++)
             {
-                int num4 = num3 % 1;
+                int num4 = num3 % i;
                 if (num4 == 0) return false;
             }
             return true;

@@ -1,9 +1,10 @@
 ﻿//1.Write a C# program that reverses a given string (your name)
 using Session_05;
 using System.ComponentModel;
+using System.Diagnostics.Metrics;
 using System.Security.Principal;
 
-string Input = "Chrissanthi";
+/*string Input = "Chrissanthi";
 StringReversal c = new StringReversal();
 string result = StringReversal.Reversion(Input);
 Console.WriteLine(result);
@@ -31,7 +32,7 @@ else
     res = Factorial.Fact(number);
 }
 Console.WriteLine("The result is:" + res);
-Console.ReadLine();
+Console.ReadLine();*/
 
 //3.Write a C# program that asks the user for an integer (n) and
 //finds all the prime numbers from 1 to n.
@@ -39,9 +40,9 @@ Console.ReadLine();
 Console.WriteLine("Give me a number.");
 int num1 = Convert.ToInt32(Console.ReadLine());
 PrimeNumbers g = new PrimeNumbers();
-for (int i =2; i <= num1; i++)
+for (int i =1; i <= num1; i++)
 {
-    if (PrimeNumbers.IsPrime(num1)) { Console.WriteLine(i + " "); }
+    if (PrimeNumbers.IsPrime(i)) { Console.WriteLine(i + " "); }
 }
 Console.ReadLine();
 
@@ -49,16 +50,20 @@ Console.ReadLine();
 //from Array2 and display the results in a new Array.
 //Array1: [2, 4, 9, 12]
 //Array2: [1, 3, 7, 10]
-int[] array1 = { 2, 4, 9, 12 };
+/*int[] array1 = { 2, 4, 9, 12 };
 int[] array2 = { 1, 3, 7, 10 };
-for(int i=1; i < array1.Length; i++)
+int[] newarray = new int[16];
+int counter = 0;
+for(int i=0; i < array1.Length; i++)
     {
-       for (int j= 1; j <array2.Length; j++ )
+       for (int j= 0; j <array2.Length; j++ )
             {
-            int[] newarray = array1[i] * array2[j];
-            Console.WriteLine(newarray);
+            newarray[counter] = array1[i] * array2[j];
+            Console.WriteLine(newarray[counter]);
+            counter = counter + 1;
             }
 }
+Console.ReadLine();
 
 //Write a C# program to sort the given array of integers from the lowest to the
 //highest number.
@@ -80,4 +85,4 @@ for(int k=0; k < third.Length-1; k++)
 foreach(int value in third)
 {
     Console.WriteLine(value + " ");
-}
+}*/
