@@ -47,3 +47,4 @@ for(j=2; j<= num1; j++)
     }
 }
 Console.ReadLine();
+
