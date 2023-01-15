@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Diagnostics.Metrics;
 using System.Security.Principal;
 
-/*string Input = "Chrissanthi";
+string Input = "Chrissanthi";
 StringReversal c = new StringReversal();
 string result = StringReversal.Reversion(Input);
 Console.WriteLine(result);
@@ -32,7 +32,7 @@ else
     res = Factorial.Fact(number);
 }
 Console.WriteLine("The result is:" + res);
-Console.ReadLine();*/
+Console.ReadLine();
 
 //3.Write a C# program that asks the user for an integer (n) and
 //finds all the prime numbers from 1 to n.
@@ -50,7 +50,7 @@ Console.ReadLine();
 //from Array2 and display the results in a new Array.
 //Array1: [2, 4, 9, 12]
 //Array2: [1, 3, 7, 10]
-/*int[] array1 = { 2, 4, 9, 12 };
+int[] array1 = { 2, 4, 9, 12 };
 int[] array2 = { 1, 3, 7, 10 };
 int[] newarray = new int[16];
 int counter = 0;
@@ -85,4 +85,4 @@ for(int k=0; k < third.Length-1; k++)
 foreach(int value in third)
 {
     Console.WriteLine(value + " ");
-}*/
+}
