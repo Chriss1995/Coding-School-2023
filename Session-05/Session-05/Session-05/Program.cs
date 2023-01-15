@@ -42,3 +42,18 @@ PrimeNumbers g = new PrimeNumbers();
 PrimeNumbers.PrintPrime(num1);
 Console.ReadLine();
 
+//4.Write a C# program to multiply all values from Array1 with all values
+//from Array2 and display the results in a new Array.
+//Array1: [2, 4, 9, 12]
+//Array2: [1, 3, 7, 10]
+int[] first = { 2, 4, 9, 12 };
+int[] second = { 1, 3, 7, 10 };
+for(int i=1; i < first.Length; i++)
+{
+    for (int j= 1; j <second.Length; j++ )
+    {
+        int[] result2 = first[i] * second[j];
+        Console.WriteLine(result);
+    }
+}
+
