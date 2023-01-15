@@ -1,6 +1,7 @@
 ﻿//1.Write a C# program that reverses a given string (your name)
 using Session_05;
 using System.ComponentModel;
+using System.Security.Principal;
 
 string Input = "Chrissanthi";
 StringReversal c = new StringReversal();
@@ -37,14 +38,7 @@ Console.ReadLine();
 
 Console.WriteLine("Give me a number.");
 int num1 = Convert.ToInt32(Console.ReadLine());
-int j;
-for(j=2; j<= num1; j++)
-{
-    PrimeNumbers p = new PrimeNumbers();
-    if (PrimeNumbers.IsPrime(j))
-    {
-        Console.WriteLine(j + " ");
-    }
-}
+PrimeNumbers g = new PrimeNumbers();
+PrimeNumbers.PrintPrime(num1);
 Console.ReadLine();
 

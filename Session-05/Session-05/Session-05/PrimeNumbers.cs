@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Authentication;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,6 +19,15 @@ namespace Session_05
             }
             return true;
 
+        }
+        public static void PrintPrime(int num3)
+        { for(int i =2; i <num3; i++)
+            {
+                if (IsPrime(i))
+                {
+                    Console.Write(i + " ");
+                }
+            }
         }
     }
 }
