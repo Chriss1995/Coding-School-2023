@@ -11,7 +11,8 @@ namespace Session_06
         public string? Code { get; set; }
         public string? Subject { get; set; }
         public Course() { }
-        public Course(Guid id) { ID = id; }
+        public Course(Guid id) { 
+            ID = id; }
         public Course(Guid id, string code)
         {
             ID = id;
