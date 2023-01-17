@@ -8,7 +8,7 @@ namespace Session_07.Methods
 {
     public class Method1
     {
-        public string Reversion(string Input)
+        public virtual string Reversion(string Input)
         {
             char[] charArray = Input.ToCharArray();
             string reversedString = string.Empty;

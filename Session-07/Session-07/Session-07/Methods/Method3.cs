@@ -10,6 +10,7 @@ namespace Session_07.Methods
     {public string Uppercase(string Input)
         {
             string Outstring = Input.ToUpper();
+            return Outstring;
         }
 
     }
