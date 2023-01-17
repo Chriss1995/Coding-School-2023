@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Session_07.Methods
 {
-    internal class Method3
-    {public string Uppercase(string Input)
+    internal class MethodUppercase: Method
+    {public override bool Run(string input, out string putput)
         {
-            string Outstring = Input.ToUpper();
-            return Outstring;
+            string output = input.ToUpper();
+            return output;
         }
 
     }

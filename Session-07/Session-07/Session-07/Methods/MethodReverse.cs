@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace Session_07.Methods
 {
-    public class Method1
+    internal class MethodReverse: Method
     {
-        public virtual string Reversion(string Input)
+        public override string Run(string input, out string output )
         {
-            char[] charArray = Input.ToCharArray();
-            string reversedString = string.Empty;
+            char[] charArray = input.ToCharArray();
+            string output = string.Empty;
             for (int i = charArray.Length - 1; i > -1; i--)
             {
-                reversedString += charArray[i];
+                output += charArray[i];
             }
-            return reversedString;
+            return output;
         }
     }
 }

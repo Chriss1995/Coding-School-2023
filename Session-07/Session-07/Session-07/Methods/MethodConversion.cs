@@ -6,20 +6,20 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Session_07.Methods
-{internal class Method2
+{internal class MethodConversion:Method 
     {
-        public virtual string Conversion(string Input)
+        public override bool Run(string input, out string output)
         {
-            bool Convertedval = Decimal.TryParse(Input, out);
+            bool Convertedval = Decimal.TryParse(input, out);
             if (Convertedval)
             {
-                int number = int.Parse(Input);
-                string result = string.Empty;
+                int number = int.Parse(input);
+                string output = string.Empty;
                 for (int i = 0; number > 0; i++)
                 {
-                    result = number % 2 + result;
+                    output = number % 2 + output;
                     number = number / 2;
-                } return result;
+                } return output;
             } else { return string.Empty; }
         }
     }
