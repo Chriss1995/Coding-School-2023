@@ -6,7 +6,20 @@ using System.Threading.Tasks;
 
 namespace Session_07
 {
-    internal class Class1
+    public class ActionResolver
     {
+        //Properties
+        public MessageLogger Logger { get; set; }
+
+        //Constructors
+        public ActionResolver()
+        {
+
+        }
+        //Methods
+        public ActionResponse Execute(ActionRequest request)
+        {
+            return null;
+        }
     }
 }

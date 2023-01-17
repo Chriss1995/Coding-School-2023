@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic;
+using Session_07.Methods;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
@@ -26,55 +27,32 @@ namespace Session_07
         }
 
     }
-    public class ForActions
-    {
-        public string Reversion(string Input)
-        {
-            char[] charArray = Input.ToCharArray();
-            string reversedString = string.Empty;
-            for (int i = charArray.Length - 1; i > -1; i--)
-            {
-                reversedString += charArray[i];
-            }
-            return reversedString;
-        }
-        public string Conversion(string Input)
-        {
-            bool Convertedval = Decimal.TryParse(out Input);
-            if (Convertedval)
-            {
-                int number = int.Parse(Input);
-                string result = string.Empty();
-                for (int i = 0; number > 0; i++)
-                {
-                    result = number % 2 + result;
-                    number = number / 2;
-                }
-            }
+   
+        
 
-        }
-        public string Uppercase(string Input)
-        {
-            string Outstring = Input.ToUpper();
-        }
-    }
-    public string Action(string request)
+    public class EnumAction
     {
-        string Output;
-        switch (ActionEnum)
+        public string Action(string request)
         {
-            case ActionEnum.Convert:
-                Output = ForActions.Conversion(request);
-                break;
-            case ActionEnum.Uppercase:
-                Output = ForActions.Uppercase(request);
-                break;
-            case ActionEnum.Reverse:
-                Output = ForActions.Reversion(request);
-                break;
-            default:
-                Console.WriteLine("Error Message");
-                break;
+            string Output;
+            switch (ActionEnum)
+            {
+                case ActionEnum.Convert:
+                    Method2 method2 = new Method2();
+                    Output = Method2.Conversion(request);
+                    break;
+                case ActionEnum.Uppercase:
+                    Method3 method3 = new Method3();
+                    Output = ForActions.Uppercase(request);
+                    break;
+                case ActionEnum.Reverse:
+                    Method1 method1 = new Method1();
+                    Output = Method1.Reversion(request);
+                    break;
+                default:
+                    Console.WriteLine("Error Message");
+                    break;
+            }
         }
     }
 }
