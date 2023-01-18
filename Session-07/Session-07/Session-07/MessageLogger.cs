@@ -10,20 +10,29 @@ namespace Session_07
     {// Properties
         public Message[] Messages { get; set; }
         //Contstructor
+        private int _messageCounter = 0;
         public MessageLogger()
-        { }
+        { Messages = new Message[1000]; }
         // Methods
         public void ReadAll()
-        {
+        {foreach(Message message in Messages)
+            {
+                if(message!= null)
+                {
+                    Console.WriteLine(message.Text);
+                }
+            }
 
         }
         public void Clear()
         {
+            Messages = new Message[1000];
 
         }
-        public Message Write()
+        public void Write(Message message)
         {
-
+            Messages = new Message[1000];
+            _messageCounter++;
         }
 
     }

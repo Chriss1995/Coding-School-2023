@@ -13,12 +13,17 @@ namespace Session_07
 
         //Constructors
         public ActionResolver()
-        {
+        {Logger = new MessageLogger()
 
         }
         //Methods
         public ActionResponse Execute(ActionRequest request)
         {
+            ActionResponse response = new ActionResponse();
+            response.ResponseID=Guid.NewGuid();
+            response.RequestID = request.RequestID();
+            Log("Execution Start");
+
             return null;
         }
     }

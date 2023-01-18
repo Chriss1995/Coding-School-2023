@@ -10,9 +10,18 @@ namespace Session_07
     {//Properties
         public Guid ID { get; set; }
         public DateTime TimeStamp { get; set; }
-        public string text_message { get; set; }
+        public string? Text { get; set; }
         // Constractor
-        public Message() { }
+        public Message() {
+            ID = Guid.NewGuid();
+        }
+        public Message(string text)
+        {
+            ID= Guid.NewGuid();
+            TimeStamp = DateTime.Now;
+            Text =text;
+        }
+
     }
 }
 

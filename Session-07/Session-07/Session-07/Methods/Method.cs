@@ -12,7 +12,7 @@ namespace Session_07.Methods
 
     public Method() {  }
 
-    public virtual bool Rune(string input, out string output)
+    public virtual bool Run(string input, out string output)
         {
             output = "No action given";
             return false;
