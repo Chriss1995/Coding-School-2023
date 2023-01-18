@@ -21,10 +21,19 @@ namespace Session_07
         {
             ActionResponse response = new ActionResponse();
             response.ResponseID=Guid.NewGuid();
-            response.RequestID = request.RequestID();
+            response.RequestID = request.RequestID;
             Log("Execution Start");
+            try
+            {
+                switch(request.Action) {
+                }
+            }
 
             return null;
+        }
+        private void Log(string text) {
+            Message message = new Message(text);
+            Logger.Write(message);
         }
     }
 }
