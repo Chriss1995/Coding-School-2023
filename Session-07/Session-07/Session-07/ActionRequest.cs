@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualBasic;
-using Session_07.Methods;
+using Session_07;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
@@ -16,7 +16,7 @@ namespace Session_07
     }
     public class ActionRequest: ActionEntity
     {//Properties
-        public string Input { get; set; }
+        public string? Input { get; set; }
         public ActionEnum Action { get; set; }
         // Constructors
         public ActionRequest()

@@ -1,7 +1,8 @@
-﻿using Session_07.Methods;
+﻿using Session_07;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,9 @@ namespace Session_07
     {
         public override string Dothat(string input)
         {
-            bool Convertedval = Decimal.TryParse(input);
-            if (Convertedval)
-            {
+            decimal Convertedval = Convert.ToDecimal(input);
+            bool Decval = Decimal.TryParse(Convertedval);
+            if (Decval) { 
                 int number = int.Parse(input);
                 string output = string.Empty;
                 for (int i = 0; number > 0; i++)
@@ -32,7 +33,7 @@ namespace Session_07
                 }
                 return output;
             }
-            else { return string.Empty; }
+                else { return string.Empty; }
         }
     }
     internal class MethodReverse : MethodParser

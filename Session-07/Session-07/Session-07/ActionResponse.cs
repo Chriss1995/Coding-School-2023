@@ -10,7 +10,7 @@ namespace Session_07
     {//Properties
         public Guid ResponseID { get; set; }
         public Guid RequestID { get; set; }
-        public String Output { get; set; }
+        public String? Output { get; set; }
 
         //Constructors
         public ActionResponse()
