@@ -22,20 +22,16 @@ namespace Session_07
         public override string Dothat(string input)
         {
             decimal Convertedval = Convert.ToDecimal(input);
-            bool Decval = Decimal.TryParse(Convertedval);
-            if (Decval) { 
-                int number = int.Parse(input);
-                string output = string.Empty;
-                for (int i = 0; number > 0; i++)
-                {
-                    output = number % 2 + output;
-                    number = number / 2;
-                }
-                return output;
-            }
-                else { return string.Empty; }
-        }
-    }
+            int number = int.Parse(input);
+            string output = string.Empty;
+             for (int i = 0; number > 0; i++)
+             {
+                  output = number % 2 + output;
+                  number = number / 2;
+             }
+             return output;
+         }
+     }
     internal class MethodReverse : MethodParser
     {
         public override string Dothat(string input)
