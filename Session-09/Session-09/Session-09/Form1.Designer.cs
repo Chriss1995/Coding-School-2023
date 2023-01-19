@@ -268,24 +268,5 @@
 
         #endregion
 
-        private TextBox TxtBox;
-        private Button btnSqrt;
-        private Button btnPower;
-        private Button btNine;
-        private Button btnEight;
-        private Button btnSeven;
-        private Button btnSix;
-        private Button btnFive;
-        private Button btnFour;
-        private Button btnThree;
-        private Button btnTwo;
-        private Button btnOne;
-        private Button btnZero;
-        private Button btnSep;
-        private Button btnAdd;
-        private Button btnSub;
-        private Button btnMult;
-        private Button btnDiv;
-        private Button btnClear;
-    }
+        
 }
