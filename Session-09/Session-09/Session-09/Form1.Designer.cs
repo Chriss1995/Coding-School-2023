@@ -45,6 +45,8 @@
             this.btnEight = new System.Windows.Forms.Button();
             this.btnNine = new System.Windows.Forms.Button();
             this.txtDisplay = new System.Windows.Forms.TextBox();
+            this.btnEqual = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnOne
@@ -145,6 +147,7 @@
             this.btnZero.TabIndex = 9;
             this.btnZero.Text = "0";
             this.btnZero.UseVisualStyleBackColor = true;
+            this.btnZero.Click += new System.EventHandler(this.btnZero_Click);
             // 
             // btnFour
             // 
@@ -213,11 +216,33 @@
             this.txtDisplay.Size = new System.Drawing.Size(278, 27);
             this.txtDisplay.TabIndex = 16;
             // 
+            // btnEqual
+            // 
+            this.btnEqual.Location = new System.Drawing.Point(16, 111);
+            this.btnEqual.Name = "btnEqual";
+            this.btnEqual.Size = new System.Drawing.Size(61, 56);
+            this.btnEqual.TabIndex = 17;
+            this.btnEqual.Text = "=";
+            this.btnEqual.UseVisualStyleBackColor = true;
+            this.btnEqual.Click += new System.EventHandler(this.btnEqual_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(178, 368);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(141, 56);
+            this.btnClear.TabIndex = 18;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(331, 450);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.btnEqual);
             this.Controls.Add(this.txtDisplay);
             this.Controls.Add(this.btnNine);
             this.Controls.Add(this.btnEight);
@@ -261,5 +286,7 @@
         private Button btnEight;
         private Button btnNine;
         private TextBox txtDisplay;
+        private Button btnEqual;
+        private Button btnClear;
     }
 }
