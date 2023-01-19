@@ -231,7 +231,7 @@ namespace Session_09
         private void btnClear_Click(object sender, EventArgs e)
         {
             start();
-            txtDisplay.Text += "0";
+            txtDisplay.Text += " ";
         }
 
         private void btnZero_Click(object sender, EventArgs e)
