@@ -199,5 +199,41 @@ namespace Session_09
                 _value2 = 9;
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            txtDisplay.Text += " +";
+            _calcOperation = CalcOperation.Addition;
+        }
+
+        private void btnSub_Click(object sender, EventArgs e)
+        {
+            txtDisplay.Text += " -";
+            _calcOperation = CalcOperation.Subtraction;
+        }
+
+        private void btnMult_Click(object sender, EventArgs e)
+        {
+            txtDisplay.Text += " *";
+            _calcOperation = CalcOperation.Multiplication;
+        }
+
+        private void btnDiv_Click(object sender, EventArgs e)
+        {
+            txtDisplay.Text += " /";
+            _calcOperation = CalcOperation.Division;
+        }
+
+        private void btnPow_Click(object sender, EventArgs e)
+        {
+            txtDisplay.Text += " ^";
+            _calcOperation = CalcOperation.Power;
+        }
+
+        private void btnSqrt_Click(object sender, EventArgs e)
+        {
+            txtDisplay.Text += " Sqrt";
+            _calcOperation = CalcOperation.Squared_root;
+        }
     }
 }

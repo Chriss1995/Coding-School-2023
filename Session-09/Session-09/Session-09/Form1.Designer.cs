@@ -31,7 +31,7 @@
             this.btnOne = new System.Windows.Forms.Button();
             this.btnTwo = new System.Windows.Forms.Button();
             this.btnThree = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnPlus = new System.Windows.Forms.Button();
             this.btnSub = new System.Windows.Forms.Button();
             this.btnMult = new System.Windows.Forms.Button();
             this.btnDiv = new System.Windows.Forms.Button();
@@ -77,14 +77,15 @@
             this.btnThree.UseVisualStyleBackColor = true;
             this.btnThree.Click += new System.EventHandler(this.btnThree_Click);
             // 
-            // button1
+            // btnPlus
             // 
-            this.button1.Location = new System.Drawing.Point(258, 306);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(65, 56);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "+";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnPlus.Location = new System.Drawing.Point(258, 306);
+            this.btnPlus.Name = "btnPlus";
+            this.btnPlus.Size = new System.Drawing.Size(65, 56);
+            this.btnPlus.TabIndex = 3;
+            this.btnPlus.Text = "+";
+            this.btnPlus.UseVisualStyleBackColor = true;
+            this.btnPlus.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnSub
             // 
@@ -94,6 +95,7 @@
             this.btnSub.TabIndex = 4;
             this.btnSub.Text = "-";
             this.btnSub.UseVisualStyleBackColor = true;
+            this.btnSub.Click += new System.EventHandler(this.btnSub_Click);
             // 
             // btnMult
             // 
@@ -103,6 +105,7 @@
             this.btnMult.TabIndex = 5;
             this.btnMult.Text = "*";
             this.btnMult.UseVisualStyleBackColor = true;
+            this.btnMult.Click += new System.EventHandler(this.btnMult_Click);
             // 
             // btnDiv
             // 
@@ -112,6 +115,7 @@
             this.btnDiv.TabIndex = 6;
             this.btnDiv.Text = "/";
             this.btnDiv.UseVisualStyleBackColor = true;
+            this.btnDiv.Click += new System.EventHandler(this.btnDiv_Click);
             // 
             // btnPow
             // 
@@ -121,6 +125,7 @@
             this.btnPow.TabIndex = 7;
             this.btnPow.Text = "^";
             this.btnPow.UseVisualStyleBackColor = true;
+            this.btnPow.Click += new System.EventHandler(this.btnPow_Click);
             // 
             // btnSqrt
             // 
@@ -130,6 +135,7 @@
             this.btnSqrt.TabIndex = 8;
             this.btnSqrt.Text = "sqrt";
             this.btnSqrt.UseVisualStyleBackColor = true;
+            this.btnSqrt.Click += new System.EventHandler(this.btnSqrt_Click);
             // 
             // btnZero
             // 
@@ -225,7 +231,7 @@
             this.Controls.Add(this.btnDiv);
             this.Controls.Add(this.btnMult);
             this.Controls.Add(this.btnSub);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnPlus);
             this.Controls.Add(this.btnThree);
             this.Controls.Add(this.btnTwo);
             this.Controls.Add(this.btnOne);
@@ -241,7 +247,7 @@
         private Button btnOne;
         private Button btnTwo;
         private Button btnThree;
-        private Button button1;
+        private Button btnPlus;
         private Button btnSub;
         private Button btnMult;
         private Button btnDiv;
