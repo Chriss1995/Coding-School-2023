@@ -6,7 +6,7 @@ namespace Session_10
     {
         List<Student> students;
         List<Course> courses;
-
+        List <>
         public Form1()
         {
             InitializeComponent();
@@ -31,9 +31,17 @@ namespace Session_10
 
         }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            Serializer serializer = new Serializer();
+            serializer.SerializeToFile(university, "test.json");
+        }
 
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            Serializer serializer = new Serializer();
+            university = serializer.Deserialize<University>("test.json");
 
-
-
+        }
     }
 }
