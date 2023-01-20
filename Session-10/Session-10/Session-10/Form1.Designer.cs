@@ -35,11 +35,11 @@
             // grvStudents
             // 
             this.grvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grvStudents.Location = new System.Drawing.Point(44, 34);
+            this.grvStudents.Location = new System.Drawing.Point(26, 25);
             this.grvStudents.Name = "grvStudents";
             this.grvStudents.RowHeadersWidth = 51;
             this.grvStudents.RowTemplate.Height = 29;
-            this.grvStudents.Size = new System.Drawing.Size(744, 211);
+            this.grvStudents.Size = new System.Drawing.Size(755, 134);
             this.grvStudents.TabIndex = 0;
             // 
             // Form1
