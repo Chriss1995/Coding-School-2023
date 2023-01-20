@@ -6,10 +6,17 @@ namespace Session_10
     {
         List<Student> students;
         List<Course> courses;
-        List <>
+        List<Grade> grades;
+        List<Schedule> Schedules;
         public Form1()
         {
             InitializeComponent();
+        }
+        private void GetUniversity() { 
+            University university = new University()
+            {
+                name = "University of Aegean"
+            };
         }
         private void PopulateStudent()
         {
@@ -30,7 +37,23 @@ namespace Session_10
             students.Add(student2);
 
         }
+        private void GetCourses()
+        {
+            courses = new List<Course>();
+            Course course1 = new Course()
+            {
+                Code = "Geo101",
+                Subject = "Introduction to Geology"
 
+            };
+            courses.Add(course1);
+            Course course2 = new Course()
+            {
+                Code = "Math011",
+                Subject = "Introduction to Maths"
+            };
+            courses.Add(course2);
+        }
         private void btnSave_Click(object sender, EventArgs e)
         {
             Serializer serializer = new Serializer();
@@ -41,6 +64,11 @@ namespace Session_10
         {
             Serializer serializer = new Serializer();
             university = serializer.Deserialize<University>("test.json");
+
+        }
+
+        private void grvStudents_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

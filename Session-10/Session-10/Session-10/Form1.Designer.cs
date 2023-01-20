@@ -36,6 +36,9 @@
             this.gvrChedule = new System.Windows.Forms.DataGridView();
             this.gdvCourses = new System.Windows.Forms.DataGridView();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAge = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRegnum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grvStudents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvrGrades)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvrChedule)).BeginInit();
@@ -46,12 +49,17 @@
             // grvStudents
             // 
             this.grvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grvStudents.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colName,
+            this.colAge,
+            this.colRegnum});
             this.grvStudents.Location = new System.Drawing.Point(26, 25);
             this.grvStudents.Name = "grvStudents";
             this.grvStudents.RowHeadersWidth = 51;
             this.grvStudents.RowTemplate.Height = 29;
             this.grvStudents.Size = new System.Drawing.Size(755, 134);
             this.grvStudents.TabIndex = 0;
+            this.grvStudents.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grvStudents_CellContentClick);
             // 
             // btnSave
             // 
@@ -103,6 +111,27 @@
             this.gdvCourses.Size = new System.Drawing.Size(389, 134);
             this.gdvCourses.TabIndex = 5;
             // 
+            // colName
+            // 
+            this.colName.HeaderText = "Name";
+            this.colName.MinimumWidth = 6;
+            this.colName.Name = "colName";
+            this.colName.Width = 125;
+            // 
+            // colAge
+            // 
+            this.colAge.HeaderText = "Age";
+            this.colAge.MinimumWidth = 6;
+            this.colAge.Name = "colAge";
+            this.colAge.Width = 125;
+            // 
+            // colRegnum
+            // 
+            this.colRegnum.HeaderText = "Registration_Number";
+            this.colRegnum.MinimumWidth = 6;
+            this.colRegnum.Name = "colRegnum";
+            this.colRegnum.Width = 125;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -134,5 +163,8 @@
         private DataGridView gvrChedule;
         private DataGridView gdvCourses;
         private BindingSource bindingSource1;
+        private DataGridViewTextBoxColumn colName;
+        private DataGridViewTextBoxColumn colAge;
+        private DataGridViewTextBoxColumn colRegnum;
     }
 }
