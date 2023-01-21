@@ -12,13 +12,17 @@ namespace Session_10
         {
             InitializeComponent();
         }
-        private void GetUniversity() { 
+        private void Form1_Load(Object sender, EventArgs e)
+        {
+            PopulateStudent();
+            GetCourses();
             University university = new University()
             {
                 name = "University of Aegean"
             };
+            university.students.Add(students);
         }
-        private void PopulateStudent()
+        public void PopulateStudent()
         {
             students = new List<Student>();
             Student student1 = new Student()
@@ -62,7 +66,7 @@ namespace Session_10
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            Serializer serializer = new Serializer();
+           Serializer serializer = new Serializer();
             university = serializer.Deserialize<University>("test.json");
 
         }
