@@ -12,7 +12,7 @@ namespace Session_10
         {
             InitializeComponent();
         }
-        private void Form1_Load(Object sender, EventArgs e)
+        public void Form1_Load(Object sender, EventArgs e)
         {
             PopulateStudent();
             GetCourses();
@@ -20,10 +20,14 @@ namespace Session_10
             {
                 name = "University of Aegean"
             };
-            university.students.Add(students);
+            university.Students.Add(student);
         }
         public void PopulateStudent()
         {
+            University university = new University()
+            {
+                name = "University of Aegean"
+            };
             students = new List<Student>();
             Student student1 = new Student()
             {
@@ -38,10 +42,11 @@ namespace Session_10
                 age = 18,
                 RegistrationNumber = 100060
             };
-            students.Add(student2);
+           students.Add(student2);
+            
 
         }
-        private void GetCourses()
+        public void GetCourses()
         {
             courses = new List<Course>();
             Course course1 = new Course()
