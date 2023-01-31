@@ -9,10 +9,14 @@ namespace CF.Orm.Context
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<TransactionLine> transactionLines { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         { modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
           modelBuilder.ApplyConfiguration(new ProductConfiguration());
-        modelBuilder.ApplyConfiguration(new ProductCategoryConfiguration());
+          modelBuilder.ApplyConfiguration(new ProductCategoryConfiguration());
+         modelBuilder.ApplyConfiguration(new TransactionConfiguration());
+            modelBuilder.ApplyConfiguration(new TransactionLineConfiguration());
             base.OnModelCreating(modelBuilder);
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
