@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Session_15", "Session_15\Se
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeshopModel", "CoffeeshopModel\CoffeeshopModel.csproj", "{DD5D0F58-0E23-44D4-9000-A0327F3CFCC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBCondext", "DBCondext\DBCondext.csproj", "{80F2FD2A-7E7F-4DC4-9C6E-60B971F0A8B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{DD5D0F58-0E23-44D4-9000-A0327F3CFCC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD5D0F58-0E23-44D4-9000-A0327F3CFCC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD5D0F58-0E23-44D4-9000-A0327F3CFCC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80F2FD2A-7E7F-4DC4-9C6E-60B971F0A8B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80F2FD2A-7E7F-4DC4-9C6E-60B971F0A8B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80F2FD2A-7E7F-4DC4-9C6E-60B971F0A8B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80F2FD2A-7E7F-4DC4-9C6E-60B971F0A8B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
