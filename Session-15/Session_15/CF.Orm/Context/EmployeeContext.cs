@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CF.Orm.Context
 {
-    public class AppDBContext : DbContext
+    public class EmployeeContext : DbContext
     {
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Product> Products { get; set; }
