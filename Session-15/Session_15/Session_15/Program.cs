@@ -1,4 +1,4 @@
-namespace WinFormsApp1
+namespace Session_15
 {
     internal static class Program
     {
