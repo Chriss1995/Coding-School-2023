@@ -21,7 +21,7 @@ namespace CF.Orm.Configuration
             builder.Property(Produt => Produt.TypeofProduct).HasConversion<string>();
             builder.Property(Product => Product.Price).HasConversion<decimal>();
             builder.Property(Product => Product.Cost).HasConversion<decimal>();
-
+         
 
         }
     }

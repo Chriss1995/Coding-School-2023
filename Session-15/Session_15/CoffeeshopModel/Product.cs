@@ -16,14 +16,13 @@ namespace CoffeeshopModel
         public Guid ID { get; set; }
         public int Code { get; set; }
         public string Description { get; set; }
-        public Guid ProductCategoryID { get; set; }
+        public int ProductCategoryID { get; set; }
         public ProductType TypeofProduct { get; set; }
         public decimal Price { get; set; }
         public decimal Cost { get; set; }
         public Product()
         {
             ID = Guid.NewGuid();
-            ProductCategoryID = Guid.NewGuid();
         }
     }
 }
