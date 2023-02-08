@@ -45,6 +45,7 @@ namespace CoffeeShop.EF.Repositories
             dbEmployee.Surname = employee.Surname;
             dbEmployee.SalaryPerMonth = employee.SalaryPerMonth;
             dbEmployee.EmployeeType = employee.EmployeeType;
+            context.SaveChanges();
         }
     }
 }

@@ -8,6 +8,7 @@ using CoffeeShop.Model;
 using CoffeeShop.EF.Context;
 using System.Net.Http.Headers;
 using Microsoft.EntityFrameworkCore;
+using CoffeeShop.Model.Enums;
 
 namespace CoffeeShop.EF.Repositories
 {
