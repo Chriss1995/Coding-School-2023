@@ -7,9 +7,4 @@
     <RootNamespace>Session_23</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\CoffeeShop.EF\CoffeeShop.EF.csproj" />
-    <ProjectReference Include="..\CoffeeShop.Model\CoffeeShop.Model.csproj" />
-  </ItemGroup>
-
 </Project>
