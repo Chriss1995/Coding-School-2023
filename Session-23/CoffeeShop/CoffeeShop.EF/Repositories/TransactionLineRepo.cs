@@ -28,6 +28,12 @@ namespace CoffeeShop.EF.Repositories
             context.Remove(dbTrancactionLine);
             context.SaveChanges();
         }
+        public List<TransactionLine> GetAll()
+        {
+            using var context = new CoffeeShopDbContext();
+            return context.TransactionLines.Include(TransactionLine => TransactionLine.Product)
+                .ToList();
+        }
         public void Update(int id,TransactionLine transactionLine)
         {
             using var context = new CoffeeShopDbContext();
