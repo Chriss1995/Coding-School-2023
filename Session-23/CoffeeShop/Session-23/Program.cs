@@ -1,7 +1,10 @@
+using CoffeeShop.EF.Repositories;
+using CoffeeShop.Model;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<EmployeeRepo>();
 
 var app = builder.Build();
 
