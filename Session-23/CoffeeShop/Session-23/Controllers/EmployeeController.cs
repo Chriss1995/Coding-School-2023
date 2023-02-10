@@ -110,7 +110,19 @@ namespace Session_23.Controllers
         // GET: EmployeeController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var dbEmployee= _employeeRepo.GetByID(id);
+            if (dbEmployee == null)
+            {
+                return NotFound();
+            }
+            var viewEmployee = new EmployeeDeleteDto
+            {
+                Id = dbEmployee.Id,
+                Name = dbEmployee.Name,
+                SalaryPerMonth = dbEmployee.SalaryPerMonth,
+                Surname = dbEmployee.Surname
+            };
+            return View(model: viewEmployee);
         }
 
         // POST: EmployeeController/Delete/5
@@ -118,14 +130,8 @@ namespace Session_23.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            _employeeRepo.Delete(id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
