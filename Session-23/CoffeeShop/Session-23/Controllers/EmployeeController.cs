@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using CoffeeShop.EF.Repositories;
 using CoffeeShop.Model;
 using Session_23.Models.Employees;
+using CoffeeShop.Model.Enums;
 
 namespace Session_23.Controllers
 {
@@ -54,16 +55,15 @@ namespace Session_23.Controllers
         // POST: EmployeeController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(EmployeesCreateDto employees)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                return View(); 
             }
-            catch
-            {
-                return View();
-            }
+            var dbEmpoloyees = new Employee(employees.Name, employees.Surname, employees.SalaryPerMoth, employees.EmployeeType);
+            _employeeRepo.Add(dbEmpoloyees);
+            return RedirectToAction("Index");
         }
 
         // GET: EmployeeController/Edit/5

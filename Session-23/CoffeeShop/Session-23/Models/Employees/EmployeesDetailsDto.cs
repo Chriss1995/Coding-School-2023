@@ -1,4 +1,5 @@
 ﻿using CoffeeShop.Model.Enums;
+using CoffeeShop.Model;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
