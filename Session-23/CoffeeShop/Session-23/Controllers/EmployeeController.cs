@@ -40,7 +40,7 @@ namespace Session_23.Controllers
                 Id = employees.Id,
                 Name = employees.Name,
                 Surname = employees.Surname,
-                SalaryPerMoth = employees.SalaryPerMonth,
+                SalaryPerMonth = employees.SalaryPerMonth,
                 EmployeeType= employees.EmployeeType
             };
             return View(model:viewEmployee);

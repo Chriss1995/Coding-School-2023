@@ -12,7 +12,7 @@ namespace Session_23.Models.Employee
         [Display (Name = "Name") ]
         public string Name { get; set; } = string.Empty;
         public string Surname { get; set; } = string.Empty;
-        public int SalaryPerMoth { get; set; }
+        public int SalaryPerMonth { get; set; }
         public EmployeeType EmployeeType { get; set; }
     }
 }
