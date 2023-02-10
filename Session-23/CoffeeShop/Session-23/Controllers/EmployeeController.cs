@@ -69,22 +69,42 @@ namespace Session_23.Controllers
         // GET: EmployeeController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var dbEmployee = _employeeRepo.GetByID(id);
+            if(dbEmployee == null)
+            {
+                return NotFound();
+            }
+            var viewEmployee = new EmployeeEditDto
+            {
+                Name= dbEmployee.Name,
+                Surname= dbEmployee.Surname,
+                Id=dbEmployee.Id,
+                SalaryPerMonth= dbEmployee.SalaryPerMonth,
+                EmployeeType= dbEmployee.EmployeeType
+            };
+            return View(model:viewEmployee);
         }
 
         // POST: EmployeeController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, EmployeeEditDto employee)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
+            if (!ModelState.IsValid)
             {
                 return View();
             }
+            var dbEmployee = _employeeRepo.GetByID(id);
+            if(dbEmployee == null)
+            {
+                return NotFound();
+            }
+            dbEmployee.Surname = employee.Surname;
+            dbEmployee.SalaryPerMonth = employee.SalaryPerMonth;
+            dbEmployee.Name = employee.Name;
+            dbEmployee.EmployeeType = employee.EmployeeType;
+            _employeeRepo.Update(id, dbEmployee);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: EmployeeController/Delete/5
