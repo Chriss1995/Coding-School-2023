@@ -35,6 +35,11 @@ namespace CoffeeShop.EF.Repositories
             return context.Transactions.Include(Transaction => Transaction.TransactionLines)
                 .ToList();
         }
+        public Transaction? GetByID(int id)
+        {
+            using var context = new CoffeeShopDbContext();
+            return context.Transactions.Where(Transaction => Transaction.Id == id).SingleOrDefault();
+        }
         public void Update(int id, Transaction transaction)
         {
             using var context= new CoffeeShopDbContext();
@@ -43,8 +48,8 @@ namespace CoffeeShop.EF.Repositories
             dbTransaction.Date = DateTime.Now;
             dbTransaction.TotalPrice= transaction.TotalPrice;
             dbTransaction.PaymentMethod= transaction.PaymentMethod;
-            dbTransaction.Customer = transaction.Customer;
-            dbTransaction.Employee= transaction.Employee;
+            dbTransaction.CustomerId = transaction.CustomerId;
+            dbTransaction.EmployeeId= transaction.EmployeeId;
             context.SaveChanges();
         }
     }

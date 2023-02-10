@@ -27,6 +27,11 @@ namespace CoffeeShop.EF.Repositories
             context.Remove(dbCustomer);
             context.SaveChanges();
         }
+        public List<Customer> GetAll()
+        {
+            using var context = new CoffeeShopDbContext();
+            return context.Customers.ToList();
+        }
         public Customer? GetByID(int id)
         {
             using var context = new CoffeeShopDbContext();

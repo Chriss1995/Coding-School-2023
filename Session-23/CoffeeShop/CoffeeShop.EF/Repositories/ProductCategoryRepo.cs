@@ -26,7 +26,19 @@ namespace CoffeeShop.EF.Repositories
             context.ProductCategories.Remove(dbProductCategory);
             context.SaveChanges();
         }
-      public void Update(int id, ProductCategory productCategory)
+        public List<ProductCategory> GetAll()
+        {
+            using var context = new CoffeeShopDbContext();
+            return context.ProductCategories.ToList();
+        }
+        public ProductCategory? GetByID(int id)
+        {
+            using var context = new CoffeeShopDbContext();
+            return context.ProductCategories.Where(ProductCategory => ProductCategory.Id == id)
+                .SingleOrDefault();
+        }
+
+        public void Update(int id, ProductCategory productCategory)
         {
             using var context = new CoffeeShopDbContext();
             var dbProductCategory = context.ProductCategories.Where(ProductCategory=> ProductCategory.Id == id).SingleOrDefault();

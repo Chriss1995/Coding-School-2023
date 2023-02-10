@@ -22,7 +22,8 @@ namespace CoffeeShop.EF.Repositories
         public void Delete(int id)
         {
             using var context = new CoffeeShopDbContext();
-            var dbTrancactionLine = context.TransactionLines.Where(TransactionLine => TransactionLine.Id == id).SingleOrDefault();
+            var dbTrancactionLine = context.TransactionLines.Where(TransactionLine => TransactionLine.Id == id)
+                .SingleOrDefault();
             if (dbTrancactionLine is null)
                 return;
             context.Remove(dbTrancactionLine);
@@ -34,17 +35,23 @@ namespace CoffeeShop.EF.Repositories
             return context.TransactionLines.Include(TransactionLine => TransactionLine.Product)
                 .ToList();
         }
+        public TransactionLine? GetByID(int id)
+        {
+            using var context = new CoffeeShopDbContext();
+            return context.TransactionLines.Where(TransactionLine => TransactionLine.Id == id).SingleOrDefault();
+        }
         public void Update(int id,TransactionLine transactionLine)
         {
             using var context = new CoffeeShopDbContext();
-            var dbTransanctionLine = context.TransactionLines.Where(TransactionLine => TransactionLine.Id == id).SingleOrDefault();
+            var dbTransanctionLine = context.TransactionLines.Where(TransactionLine => TransactionLine.Id == id)
+                .SingleOrDefault();
             if(dbTransanctionLine is null) return;
             dbTransanctionLine.TotalPrice = transactionLine.TotalPrice;
             dbTransanctionLine.Price = transactionLine.Price;
             dbTransanctionLine.Quantity = transactionLine.Quantity;
             dbTransanctionLine.Discount = transactionLine.Discount;
-            dbTransanctionLine.Transaction= transactionLine.Transaction;
-            dbTransanctionLine.Product= dbTransanctionLine.Product;
+            dbTransanctionLine.TransactionId= transactionLine.TransactionId;
+            dbTransanctionLine.ProductId= dbTransanctionLine.ProductId;
             context.SaveChanges();
         }
     }

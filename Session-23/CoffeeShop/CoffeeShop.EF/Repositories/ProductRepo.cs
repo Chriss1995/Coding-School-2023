@@ -26,6 +26,16 @@ namespace CoffeeShop.EF.Repositories
             context.Products.Remove(dbProduct);
             context.SaveChanges();
         }
+        public List<Product> GetAll()
+        {
+            using var context = new CoffeeShopDbContext();
+            return context.Products.ToList();
+        }
+        public Product? GetByID(int id)
+        {
+            using var context = new CoffeeShopDbContext();
+            return context.Products.Where(Product => Product.Id == id).SingleOrDefault();
+        }
         public void Update(int id, Product product)
         {
             using var context = new CoffeeShopDbContext();
@@ -35,7 +45,7 @@ namespace CoffeeShop.EF.Repositories
             dbProduct.Description= product.Description;
             dbProduct.Price = product.Price;
             product.Cost = product.Cost;
-            product.ProductCategory = product.ProductCategory;
+            product.ProductCategoryId = product.ProductCategoryId;
 
         }
     }
