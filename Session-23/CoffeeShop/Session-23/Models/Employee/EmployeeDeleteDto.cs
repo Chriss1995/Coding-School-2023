@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 
-namespace Session_23.Models.Employees
+namespace Session_23.Models.Employee
 {
-    public class EmployeesEditDto
+    public class EmployeeDeleteDto
     {
         public int Id { get; set; }
         [Display (Name = "Name") ]

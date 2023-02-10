@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using CoffeeShop.EF.Repositories;
 using CoffeeShop.Model;
-using Session_23.Models.Employees;
+using Session_23.Models.Employee;
 using CoffeeShop.Model.Enums;
 
 namespace Session_23.Controllers
@@ -35,7 +35,7 @@ namespace Session_23.Controllers
             {
                 return NotFound();
             }
-            var viewEmployee = new EmployeesDetailsDto
+            var viewEmployee = new EmployeeDetailsDto
             {
                 Id = employees.Id,
                 Name = employees.Name,
@@ -55,13 +55,13 @@ namespace Session_23.Controllers
         // POST: EmployeeController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(EmployeesCreateDto employees)
+        public ActionResult Create(EmployeeCreateDto employees)
         {
             if (!ModelState.IsValid)
             {
                 return View(); 
             }
-            var dbEmpoloyees = new Employee(employees.Name, employees.Surname, employees.SalaryPerMoth, employees.EmployeeType);
+            var dbEmpoloyees = new Employee(employees.Name, employees.Surname, employees.SalaryPerMonth, employees.EmployeeType);
             _employeeRepo.Add(dbEmpoloyees);
             return RedirectToAction("Index");
         }
