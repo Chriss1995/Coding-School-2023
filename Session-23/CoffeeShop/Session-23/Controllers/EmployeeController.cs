@@ -18,7 +18,7 @@ namespace Session_23.Controllers
         {
             var employees = _employeeRepo.GetAll();
             var EmployeeList = employees.ToList(); 
-            return View();
+            return View(model: EmployeeList);
         }
 
         // GET: EmployeeController/Details/5
