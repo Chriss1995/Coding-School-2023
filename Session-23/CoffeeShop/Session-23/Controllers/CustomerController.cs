@@ -36,16 +36,15 @@ namespace Session_23.Controllers
         // POST: CustomerController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(CustomerCreateDto customer)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
+            if (!ModelState.IsValid)
             {
                 return View();
             }
+            var dbCustomer = new Customer(customer.Code, customer.Description);
+            _customerRepo.Add(dbCustomer);
+            return RedirectToAction("Index");
         }
 
         // GET: CustomerController/Edit/5
