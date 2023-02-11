@@ -106,22 +106,27 @@ namespace Session_23.Controllers
         // GET: ProductCategoryController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var dbProductCategory = _productCategoryRepo.GetByID(id);
+            if(dbProductCategory == null) 
+            { 
+                return NotFound();
+            }
+            var viewProductCategory = new ProductCategoryDeleteDto
+            {
+                Code = dbProductCategory.Code,
+                Description = dbProductCategory.Description,
+                ProductType = dbProductCategory.ProductType
+            };
+            return View(model: viewProductCategory);
         }
 
         // POST: ProductCategoryController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, ProductCategoryDeleteDto productCategories)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            _productCategoryRepo.Delete(id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
