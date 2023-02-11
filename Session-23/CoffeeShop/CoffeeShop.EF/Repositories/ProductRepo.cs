@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CoffeeShop.Model;
 using CoffeeShop.EF.Context;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
 
 namespace CoffeeShop.EF.Repositories
 {
@@ -46,7 +47,7 @@ namespace CoffeeShop.EF.Repositories
             dbProduct.Price = product.Price;
             product.Cost = product.Cost;
             product.ProductCategoryId = product.ProductCategoryId;
-
+            context.SaveChanges();
         }
     }
 }

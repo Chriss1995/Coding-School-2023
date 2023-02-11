@@ -42,10 +42,12 @@ namespace CoffeeShop.EF.Repositories
         {
             using var context = new CoffeeShopDbContext();
             var dbProductCategory = context.ProductCategories.Where(ProductCategory=> ProductCategory.Id == id).SingleOrDefault();
-            if (dbProductCategory is null) return;
+            if (dbProductCategory is null) 
+                return;
             dbProductCategory.Code = productCategory.Code;
             dbProductCategory.Description = productCategory.Description;
             dbProductCategory.ProductType = productCategory.ProductType;
+            context.SaveChanges();
         }
     }
 }
