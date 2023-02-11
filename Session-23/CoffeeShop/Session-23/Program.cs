@@ -7,6 +7,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<EmployeeRepo>();
 builder.Services.AddScoped<ProductCategoryRepo>();
 builder.Services.AddScoped<ProductRepo>();
+builder.Services.AddScoped<CustomerRepo>();
 
 var app = builder.Build();
 
