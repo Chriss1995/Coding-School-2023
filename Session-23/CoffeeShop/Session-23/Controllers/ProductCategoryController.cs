@@ -52,22 +52,39 @@ namespace Session_23.Controllers
         // GET: ProductCategoryController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var dbProductCatery = _productCategoryRepo.GetByID(id);
+            if(dbProductCatery == null)
+            {
+               return NotFound();
+            }
+            var viewProductCategory = new ProductCategoryEditDto
+            {
+                Code = dbProductCatery.Code,
+                Description = dbProductCatery.Description,
+                ProductType= dbProductCatery.ProductType
+            };
+            return View(model: viewProductCategory);
         }
 
         // POST: ProductCategoryController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id,ProductCategoryEditDto productCategory)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
+            if (!ModelState.IsValid)
             {
                 return View();
             }
+            var dbProductCategory = _productCategoryRepo.GetByID(id);
+            if (dbProductCategory == null)
+            {
+                return NotFound();
+            }
+            dbProductCategory.Code = productCategory.Code;
+            dbProductCategory.Description = productCategory.Description;
+            dbProductCategory.ProductType = productCategory.ProductType;
+            _productCategoryRepo.Update(id, dbProductCategory);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: ProductCategoryController/Delete/5
