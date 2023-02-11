@@ -9,9 +9,11 @@ namespace Session_23.Controllers
     public class ProductController : Controller
     {
         private readonly ProductRepo _productRepo;
-        public ProductController(ProductRepo productRepo)
+        private readonly ProductCategoryRepo _productCategoryRepo;
+        public ProductController(ProductRepo productRepo, ProductCategoryRepo productCategoryRepo)
         {
             _productRepo = productRepo;
+            _productCategoryRepo = productCategoryRepo;
         }
 
         // GET: ProductController
@@ -31,22 +33,30 @@ namespace Session_23.Controllers
         // GET: ProductController/Create
         public ActionResult Create()
         {
-            return View();
+            var newProduct = new ProductCreateDto();
+            var productCategories = _productCategoryRepo.GetAll();
+            foreach(var ProductCategory in productCategories)
+            {
+                newProduct.ProductCategory.Add(new Microsoft.AspNetCore.Mvc.Rendering.SelectListItem(ProductCategory.Id.ToString(), ProductCategory.Code.ToString()));
+            }
+            return View(model: newProduct);
         }
 
         // POST: ProductController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(int id, ProductCreateDto product)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
+            if (!ModelState.IsValid)
             {
                 return View();
             }
+            var dbProduct = new Product(product.Code, product.Description, product.Price, product.Cost)
+            {
+                ProductCategoryId = product.ProductCategoryId
+            };
+            _productRepo.Add(id, dbProduct);
+            return RedirectToAction("Index");
         }
 
         // GET: ProductController/Edit/5
