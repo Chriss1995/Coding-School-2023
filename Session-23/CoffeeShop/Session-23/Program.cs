@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<EmployeeRepo>();
 builder.Services.AddScoped<ProductCategoryRepo>();
+builder.Services.AddScoped<ProductRepo>();
 
 var app = builder.Build();
 
