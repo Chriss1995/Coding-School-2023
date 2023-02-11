@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Session_23.Models.ProductCategory
 {
-    public class ProdyctCategoryCreatDto
+    public class ProductCategoryCreateDto
     {
         public int Id { get; set; }
         public string Code { get; set; } = string.Empty;

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using CoffeeShop.EF.Repositories;
 using CoffeeShop.Model;
-using Session_23.Models.Employee;
+using Session_23.Models.ProductCategory;
 using CoffeeShop.Model.Enums;
 
 
@@ -38,16 +38,15 @@ namespace Session_23.Controllers
         // POST: ProductCategoryController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(ProductCategoryCreateDto productCategory)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
+            if (!ModelState.IsValid)
             {
                 return View();
             }
+            var dbProductCategory = new ProductCategory(productCategory.Code, productCategory.Description, productCategory.ProductType);
+            _productCategoryRepo.Add(dbProductCategory);
+            return RedirectToAction("Index");
         }
 
         // GET: ProductCategoryController/Edit/5
