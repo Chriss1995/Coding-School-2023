@@ -22,9 +22,23 @@ namespace Session_23.Controllers
         }
 
         // GET: CustomerController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var customer = _customerRepo.GetByID(id.Value);
+            if(customer == null)
+            {
+                return NotFound();
+            }
+            var viewCustomer = new CustomerDetailsDto
+            {
+                Code = customer.Code,
+                Description = customer.Description,
+            };
+            return View(model: viewCustomer);
         }
 
         // GET: CustomerController/Create
