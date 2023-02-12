@@ -14,7 +14,7 @@ namespace Session_23.Models.Product
         public int ProductCategoryId { get; set; }
         public List<SelectListItem> ProductCategory { get; set; } = new List<SelectListItem>();
 
-        public List<TransactionLine>? TransactionLines { get; set; }
+        public List<SelectListItem> TransactionLines { get; set; } = new List<SelectListItem>();
 
 
     }
