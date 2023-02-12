@@ -86,22 +86,26 @@ namespace Session_23.Controllers
         // GET: CustomerController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var dbCustomer = _customerRepo.GetByID(id);
+            if(dbCustomer == null)
+            {
+                return NotFound();
+            }
+            var viewCustomer = new CustomerDeleteDto
+            {
+                Code = dbCustomer.Code,
+                Description = dbCustomer.Description,
+            };
+            return View(model: viewCustomer);
         }
 
         // POST: CustomerController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, CustomerDeleteDto customer)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            _customerRepo.Delete(id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
