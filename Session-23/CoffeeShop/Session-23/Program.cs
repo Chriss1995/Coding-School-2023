@@ -8,6 +8,8 @@ builder.Services.AddScoped<EmployeeRepo>();
 builder.Services.AddScoped<ProductCategoryRepo>();
 builder.Services.AddScoped<ProductRepo>();
 builder.Services.AddScoped<CustomerRepo>();
+builder.Services.AddScoped<TransactionRepo>();
+builder.Services.AddScoped<TransactionLineRepo>();
 
 var app = builder.Build();
 
