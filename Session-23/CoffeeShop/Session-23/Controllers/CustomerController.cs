@@ -50,22 +50,37 @@ namespace Session_23.Controllers
         // GET: CustomerController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+          var dbCustomer = _customerRepo.GetByID(id);
+          if(dbCustomer == null)
+            {
+                return NotFound();
+            }
+            var viewCustomer = new CustomerEditDto
+            {
+                Code = dbCustomer.Code,
+                Description = dbCustomer.Description,
+            };
+            return View(model: viewCustomer);
         }
 
         // POST: CustomerController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, CustomerEditDto customer)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
+            if (!ModelState.IsValid)
             {
                 return View();
             }
+            var dbCustomer = _customerRepo.GetByID(id);
+            if(dbCustomer == null)
+            {
+                return NotFound();
+            }
+            dbCustomer.Description = dbCustomer.Description;
+            dbCustomer.Code = dbCustomer.Code;
+            _customerRepo.Update(id, dbCustomer);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: CustomerController/Delete/5
