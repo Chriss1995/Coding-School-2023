@@ -12,12 +12,11 @@ namespace CoffeeShop.EF.Repositories
 {
     public class ProductRepo
     {
-        public void Add(int id, Product product)
+        public void Add(Product product)
         {
             using var context = new CoffeeShopDbContext();
             if (product.Id != 0)
                 throw new ArgumentException("Given product should not have Id set");
-            context.Products.Include(Product => Product.ProductCategoryId);
             context.Add(product);
             context.SaveChanges();
         }

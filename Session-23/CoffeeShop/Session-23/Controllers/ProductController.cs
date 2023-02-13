@@ -37,7 +37,7 @@ namespace Session_23.Controllers
             var productCategories = _productCategoryRepo.GetAll();
             foreach(var ProductCategory in productCategories)
             {
-                newProduct.ProductCategory.Add(new Microsoft.AspNetCore.Mvc.Rendering.SelectListItem(ProductCategory.Id.ToString(), ProductCategory.Code.ToString()));
+                newProduct.ProductCategory.Add(new Microsoft.AspNetCore.Mvc.Rendering.SelectListItem(ProductCategory.Id.ToString(), ProductCategory.Id.ToString()));
             }
             return View(model: newProduct);
         }
@@ -55,7 +55,7 @@ namespace Session_23.Controllers
             {
                 ProductCategoryId = product.ProductCategoryId
             };
-            _productRepo.Add(id, dbProduct);
+            _productRepo.Add(dbProduct);
             return RedirectToAction("Index");
         }
 
