@@ -3,7 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Session_23.Models.Transanction;
 using CoffeeShop.Model.Enums;
 using CoffeeShop.EF.Repositories;
-using Session_23.Models.Product;
+using Session_23.Models.TransactionLine;
+using CoffeeShop.Model;
 
 namespace Session_23.Controllers
 { 
@@ -36,22 +37,36 @@ namespace Session_23.Controllers
         // GET: TransactionController/Create
         public ActionResult Create()
         {
-          
+            var newTransaction = new TransactionCreateDto();
+            var customers=_customerRepo.GetAll();
+            foreach (var Customer in customers)
+            {
+                newTransaction.Customer.Add(new Microsoft.AspNetCore.Mvc.Rendering.SelectListItem(Customer.Id.ToString(), Customer.Id.ToString()));
+            }
+            var employees = _employeeRepo.GetAll();
+            foreach (var Employee in employees)
+            {
+                newTransaction.Employee.Add(new Microsoft.AspNetCore.Mvc.Rendering.SelectListItem(Employee.Id.ToString(), Employee.Id.ToString()));
+            }
+            return View(model: newTransaction);
         }
 
         // POST: TransactionController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(TransactionCreateDto transaction)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
+            if(!ModelState.IsValid)
             {
                 return View();
             }
+            var dbTransaction = new Transaction(transaction.TotalPrice, transaction.PaymentMethod)
+            {
+                EmployeeId = transaction.EmployeeId,
+                CustomerId = transaction.CustomerId
+            };
+            _transactionRepo.Add(dbTransaction);
+            return RedirectToAction("Index");
         }
 
         // GET: TransactionController/Edit/5
