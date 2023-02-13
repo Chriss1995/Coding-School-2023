@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Session_23.Models.Employee;
+using Session_23.Models.Transanction;
 using CoffeeShop.Model.Enums;
 using CoffeeShop.EF.Repositories;
+using Session_23.Models.Product;
 
 namespace Session_23.Controllers
 { 
@@ -35,7 +36,7 @@ namespace Session_23.Controllers
         // GET: TransactionController/Create
         public ActionResult Create()
         {
-            return View();
+          
         }
 
         // POST: TransactionController/Create

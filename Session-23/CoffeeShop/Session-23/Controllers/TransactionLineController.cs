@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using CoffeeShop.Model;
-using Session_23.Models.Employee;
 using CoffeeShop.Model.Enums;
 using CoffeeShop.EF.Repositories;
+using Session_23.Models.TransactionLine;
+using Session_23.Models.Product;
 
 namespace Session_23.Controllers
 {
@@ -35,22 +36,30 @@ namespace Session_23.Controllers
         // GET: TransactionLineController/Create
         public ActionResult Create()
         {
-            return View();
+            var newTransactionLine = new TransactionLineCreateDto();
+            var products = _productRepo.GetAll();
+            foreach (var Product in products)
+            {
+                newTransactionLine.Prpoduct.Add(new Microsoft.AspNetCore.Mvc.Rendering.SelectListItem(Product.Id.ToString(),Product.Id.ToString()));
+            }
+            return View(model: newTransactionLine);
         }
 
         // POST: TransactionLineController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(TransactionLineCreateDto transactionLine)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
+            if (!ModelState.IsValid)
             {
                 return View();
             }
+            var dbTransactionLine = new TransactionLine(transactionLine.Quantity, transactionLine.Discount, transactionLine.Discount, transactionLine.TotalPrice)
+            {
+                ProductId = transactionLine.ProdctId
+            };
+            _transactionLineRepo.Add(dbTransactionLine);
+            return RedirectToAction("Index");
         }
 
         // GET: TransactionLineController/Edit/5
