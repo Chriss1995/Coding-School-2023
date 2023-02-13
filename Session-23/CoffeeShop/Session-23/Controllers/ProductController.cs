@@ -115,22 +115,33 @@ namespace Session_23.Controllers
         // GET: ProductController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var dbProduct = _productRepo.GetByID(id);
+            if(dbProduct == null)
+            {
+                return NotFound();
+            }
+            var viewProduct = new ProductDeleteDto()
+            {
+                Code = dbProduct.Code,
+                Description = dbProduct.Description,
+                Price = dbProduct.Price,
+                Cost = dbProduct.Cost,
+            };
+            var ProductCategories = _productCategoryRepo.GetAll();
+            foreach (var ProductCategory in ProductCategories)
+            {
+                viewProduct.ProductCategory.Add(new Microsoft.AspNetCore.Mvc.Rendering.SelectListItem(ProductCategory.Id.ToString(), ProductCategory.Id.ToString()));
+            }
+            return View(model: viewProduct);
         }
 
         // POST: ProductController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, ProductDeleteDto product)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            _productRepo.Delete(id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
