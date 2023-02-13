@@ -25,9 +25,27 @@ namespace Session_23.Controllers
         }
 
         // GET: ProductController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
-            return View();
+            if(id == null)
+            {
+                return NotFound();
+            }
+            var product = _productRepo.GetByID(id.Value);
+            if(product == null)
+            {
+                return NotFound();
+            }
+            var viewProduct = new ProductDetailsDto
+            {
+                Code = product.Code,
+                Description = product.Description,
+                Price = product.Price,
+                Cost =product.Cost,
+                ProductCategoryId = product.ProductCategoryId
+            };
+            return View(model: viewProduct);
+
         }
 
         // GET: ProductController/Create
@@ -126,12 +144,8 @@ namespace Session_23.Controllers
                 Description = dbProduct.Description,
                 Price = dbProduct.Price,
                 Cost = dbProduct.Cost,
+                ProductCategoryId = dbProduct.ProductCategoryId
             };
-            var ProductCategories = _productCategoryRepo.GetAll();
-            foreach (var ProductCategory in ProductCategories)
-            {
-                viewProduct.ProductCategory.Add(new Microsoft.AspNetCore.Mvc.Rendering.SelectListItem(ProductCategory.Id.ToString(), ProductCategory.Id.ToString()));
-            }
             return View(model: viewProduct);
         }
 
