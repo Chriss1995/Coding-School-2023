@@ -7,9 +7,11 @@ namespace FuelGasStation.EF.Context
     public class FuelGasStationDbContext : DbContext
     {
         public DbSet<Customer> Customers { get; set; } = null!;
+        public DbSet<Employee> Employees { get; set; } = null!;
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
+            modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
             base.OnModelCreating(modelBuilder);
         }
 
