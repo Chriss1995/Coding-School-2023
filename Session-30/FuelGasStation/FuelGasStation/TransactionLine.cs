@@ -8,11 +8,11 @@ namespace FuelGasStation.Model
 {
     public class TransactionLine
     {
-        public TransactionLine(int quantity, decimal itemPrice, decimal metValue, decimal percentDiscount, decimal discountValue, decimal totalValue)
+        public TransactionLine(int quantity, decimal itemPrice, decimal netValue, decimal percentDiscount, decimal discountValue, decimal totalValue)
         {
             Quantity = quantity;
             ItemPrice = itemPrice;
-            NetValue = metValue;
+            NetValue = netValue;
             PercentDiscount = percentDiscount;
             DiscountValue = discountValue;
             TotalValue = totalValue;
