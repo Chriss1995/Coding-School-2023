@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FuelGasStation.EF.Repositories
 {
-    internal class TransactionLineRepo : IEntityRepo<TransactionLine>
+    public class TransactionLineRepo : IEntityRepo<TransactionLine>
     {
         public void Add(TransactionLine entity)
         {
