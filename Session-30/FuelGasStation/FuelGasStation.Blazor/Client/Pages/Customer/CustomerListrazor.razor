@@ -1,0 +1,97 @@
+﻿@page "/customerslist"
+@using FuelGasStation.Blazor.Shared.Customer;
+@using Microsoft.JSInterop;
+@using System.Net.Http.Json;
+@inject HttpClient httpClient
+@inject NavigationManager navigationManager
+@inject IJSRuntime jsRuntime
+
+
+<PageTitle>Customers</PageTitle>
+<h3>Customers List</h3>
+
+<style>
+    body{
+        background-color:#FAF8F1    
+    }
+    .main-btn{
+        margin-top: 15px;
+        margin-bottom: 15px;/
+    }
+    h3{
+        border-bottom: double;
+    }
+</style>
+
+@if(isloading)
+{
+    <div class="spinner-border text-primary" role="status">
+        <span class="sr-only"></span>
+    </div>
+    <p style="color:blue">Loading...</p>
+}else
+{
+    <button class="main-btn btn-success btn-group-lg main-btn" onclick="CreateItem"> Create New +</button>
+    <table class=" table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>CardNumber</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var customer in customerList)
+            {
+                <tr>
+                    <td>@customer.Name</td>
+                    <td>@customer.Surname</td>
+                    <td>@customer.CardNumber</td>
+                    <td>
+                        <button class="btn btn-primary" @onclick="()=>EditItem(customer)">Edit</button>
+                        <button class="btn btn-danger" @onclick="()=>DeleteItem(customer)">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+@code {
+    private List<CustomerListDto> customerList = new();
+    bool isloading { get; set; } = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadItemsFromServer();
+        isloading = false;
+    }
+
+    private async Task LoadItemsFromServer()
+    {
+        customerList = await httpClient.GetFromJsonAsync<List<CustomerListDto>>("custoemer");
+    }
+
+    private void CreateItem()
+    {
+        navigationManager.NavigateTo("customerlist/edit");
+    }
+
+    private void EditItem(CustomerListDto customer)
+    {
+        navigationManager.NavigateTo($"customerlist/edit/{customer.Id}");
+    }
+
+    private async Task DeleteItem(CustomerListDto customer)
+    {
+        var confrim = await jsRuntime.InvokeAsync<bool>("confirm", "Delet Item. Are you sure?");
+        if (confrim)
+        {
+            var response = await httpClient.DeleteAsync($"customer/{customer.Id}");
+            response.EnsureSuccessStatusCode();
+            await LoadItemsFromServer();
+        }
+    }
+
+}

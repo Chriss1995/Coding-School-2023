@@ -7,11 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuelGasStation.Model", "Fue
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuelGasStation.EF", "FuelGasStation.EF\FuelGasStation.EF.csproj", "{AEB5A120-9282-48E6-804F-5EEF77475550}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuelGasStation.Blazor.Server", "FuelGasStation.Blazor\Server\FuelGasStation.Blazor.Server.csproj", "{EF0A5649-6C48-4D00-8213-75EBA9BC54F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuelGasStation.Blazor.Server", "FuelGasStation.Blazor\Server\FuelGasStation.Blazor.Server.csproj", "{EF0A5649-6C48-4D00-8213-75EBA9BC54F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuelGasStation.Blazor.Client", "FuelGasStation.Blazor\Client\FuelGasStation.Blazor.Client.csproj", "{64072D08-2D45-474A-BECC-7841A2954197}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuelGasStation.Blazor.Client", "FuelGasStation.Blazor\Client\FuelGasStation.Blazor.Client.csproj", "{64072D08-2D45-474A-BECC-7841A2954197}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuelGasStation.Blazor.Shared", "FuelGasStation.Blazor\Shared\FuelGasStation.Blazor.Shared.csproj", "{E5D1FAF6-F5FF-4585-BA55-F9A8C677470C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuelGasStation.Blazor.Shared", "FuelGasStation.Blazor\Shared\FuelGasStation.Blazor.Shared.csproj", "{E5D1FAF6-F5FF-4585-BA55-F9A8C677470C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
