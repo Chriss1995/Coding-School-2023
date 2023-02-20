@@ -25,7 +25,7 @@ namespace FuelGasStation.Blazor.Server.Controllers
             {
                 Name = Customer.Name,
                 Surname = Customer.Surname,
-                CardNumber =Customer.CardNumber,
+                CardNumber =Customer.CardNumber
             });
         }
 
