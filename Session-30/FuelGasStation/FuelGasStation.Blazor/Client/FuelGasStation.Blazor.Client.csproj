@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Pages\Customer\CustomerListrazor.razor" />
+    <Content Remove="Pages\Customer\CustomerList.razor" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,15 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\Customer\CustomerListrazor.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="Pages\Customer\CustomerListrazor.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Pages\Customer\CustomerListrazor.razor" />
+    <None Include="Pages\Customer\CustomerList.razor" />
   </ItemGroup>
 
 </Project>
