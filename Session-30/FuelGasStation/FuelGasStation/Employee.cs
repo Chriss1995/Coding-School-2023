@@ -10,6 +10,16 @@ namespace FuelGasStation.Model
 {
     public  class Employee
     {
+        private EmployeeType employeeType;
+
+        public Employee(string name, DateTime dateHireStart, int salaryPerMonth, EmployeeType employeeType)
+        {
+            Name = name;
+            DateHireStart = dateHireStart;
+            SalaryPerMonth = salaryPerMonth;
+            this.employeeType = employeeType;
+        }
+
         public Employee(string name, string surname, DateTime dateHireStart, int salaryPerMonth, EmployeeType employeeType) 
         {
             Name= name;
