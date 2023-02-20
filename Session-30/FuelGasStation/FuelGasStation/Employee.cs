@@ -32,7 +32,7 @@ namespace FuelGasStation.Model
         public string Name { get; set; }
         public string Surname { get; set; }
         public DateTime DateHireStart { get; set; }
-        public DateTime DateHireEnd { get; set; }
+        public DateTime? DateHireEnd { get; set; }
         public int SalaryPerMonth { get; set; }
         public EmployeeType EmployeeType { get; set; }
 

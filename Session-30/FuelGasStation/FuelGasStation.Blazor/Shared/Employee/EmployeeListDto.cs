@@ -13,7 +13,7 @@ namespace FuelGasStation.Blazor.Shared.Employee
         public string Name { get; set; } = null!;
         public string Surname { get; set; } = null!;
         public DateTime DateHireStart { get; set; }
-        public DateTime DateHireEnd { get; set; }
+        public DateTime? DateHireEnd { get; set; }
         public int SalaryPerMonth { get; set; }
         public EmployeeType EmployeeType { get; set; }
     }

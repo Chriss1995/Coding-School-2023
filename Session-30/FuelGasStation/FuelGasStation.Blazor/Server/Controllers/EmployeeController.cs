@@ -24,6 +24,7 @@ namespace FuelGasStation.Blazor.Server.Controllers
             var result = _employeeRepo.GetAll();
             return result.Select(Employee => new EmployeeListDto
             {
+                Id = Employee.Id,
                 Name= Employee.Name,
                 Surname = Employee.Surname,
                 DateHireStart= Employee.DateHireStart,
@@ -39,7 +40,7 @@ namespace FuelGasStation.Blazor.Server.Controllers
             var result = _employeeRepo.GetById(id);
             return new EmployeeEditDto
             {
-
+                Id = result.Id,
                 Name = result.Name,
                 Surname = result.Surname,
                 DateHireStart = result.DateHireStart,

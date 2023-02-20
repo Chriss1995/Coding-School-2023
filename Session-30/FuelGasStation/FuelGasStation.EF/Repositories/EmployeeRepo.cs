@@ -20,6 +20,7 @@ namespace FuelGasStation.EF.Repositories
                 throw new ArgumentException("Given entity should not have Id set", nameof(entity));
             }
             context.Employees.Add(entity);
+            context.SaveChanges();
         }
 
         public void Delete(int id)
