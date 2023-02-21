@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FuelGasStation.Model;
-using FuelGasStation.Model.Enums;
 using FuelGasStation.EF.Context;
 using System.Data;
 
