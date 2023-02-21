@@ -12,22 +12,15 @@ namespace FuelGasStation.Model
     {
         private EmployeeType employeeType;
 
-        public Employee(string name, DateTime dateHireStart, int salaryPerMonth, EmployeeType employeeType)
+        public Employee(string name, string surname, DateTime dateHireStart, int salaryPerMonth, EmployeeType employeeType)
         {
             Name = name;
+            Surname = surname;
             DateHireStart = dateHireStart;
             SalaryPerMonth = salaryPerMonth;
-            this.employeeType = employeeType;
-        }
-
-        public Employee(string name, string surname, DateTime dateHireStart, int salaryPerMonth, EmployeeType employeeType) 
-        {
-            Name= name;
-            Surname= surname;
-            SalaryPerMonth = salaryPerMonth;
-            DateHireStart = dateHireStart;
             EmployeeType = employeeType;
         }
+
         public int Id { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }

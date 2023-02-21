@@ -2,8 +2,11 @@
 {
     public class Customer
     {
-        public Customer(string Name, string Surname, string CardNumber) 
+        public Customer(string name, string surname, string cardNumber) 
         {
+            Name = name;
+            Surname = surname;
+            CardNumber = cardNumber;
             Transactions = new List<Transaction>();
         }
         public int Id { get; set; }

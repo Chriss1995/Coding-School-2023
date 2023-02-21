@@ -54,9 +54,8 @@ namespace FuelGasStation.Blazor.Server.Controllers
         [HttpPost]
         public async Task Post(EmployeeEditDto employee)
         {
-            var newEmployee = new Employee(employee.Name, employee.DateHireStart, employee.SalaryPerMonth, employee.EmployeeType)
+            var newEmployee = new Employee(employee.Name, employee.Surname, employee.DateHireStart, employee.SalaryPerMonth, employee.EmployeeType)
             {
-                Surname= employee.Surname,
                 DateHireEnd = employee.DateHireEnd
             };
           

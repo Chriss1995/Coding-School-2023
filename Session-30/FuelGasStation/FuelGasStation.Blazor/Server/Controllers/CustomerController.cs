@@ -58,6 +58,7 @@ namespace FuelGasStation.Blazor.Server.Controllers
             itemToUpdate.Name = customer.Name;
             itemToUpdate.Surname = customer.Surname;
             itemToUpdate.CardNumber = customer.CardNumber;
+            _customerRepo.Update(customer.Id, itemToUpdate);
         }
 
         [HttpDelete("{id}")]

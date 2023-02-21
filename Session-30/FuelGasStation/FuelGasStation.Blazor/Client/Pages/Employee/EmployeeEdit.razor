@@ -52,13 +52,13 @@ else
     <div class=" row">
         <div class="col-md-6">
             <label class="form-label">Salary Per Month</label>
-            <input class="form-control" @bind=Employee.SalaryPerMonth />
+            <input class="form-control" @bind=@Employee.SalaryPerMonth />
         </div>
     </div>
     <div class=" row">
         <div class="col-md-6">
-            <label class="form-label">CardNumber</label>
-            <select class="form-control">
+            <label class="form-label">Employee Type</label>
+            <select class="form-control" @bind=Employee.EmployeeType>
                 @foreach(var enumValue in Enum.GetValues<EmployeeType>())
                 {
                  <option value="@enumValue">@enumValue</option>   
