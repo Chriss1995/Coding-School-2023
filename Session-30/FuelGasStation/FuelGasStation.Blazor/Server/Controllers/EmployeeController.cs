@@ -47,7 +47,6 @@ namespace FuelGasStation.Blazor.Server.Controllers
                 DateHireEnd = result.DateHireEnd,
                 SalaryPerMonth = result.SalaryPerMonth,
                 EmployeeType = result.EmployeeType
-
             };
         }
 

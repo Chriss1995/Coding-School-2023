@@ -9,9 +9,8 @@ namespace FuelGasStation.Model
 {
     public class Item
     {
-        public Item(int id, int code, string descriptioon, ItemType itemType, decimal cost, decimal price)
+        public Item(int code, string descriptioon, ItemType itemType, decimal cost, decimal price)
         {
-            Id = id;
             Code = code;
             Descriptioon = descriptioon;
             ItemType = itemType;
