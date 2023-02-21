@@ -3,7 +3,7 @@ using FuelGasStation.Model;
 using FuelGasStation.Blazor.Shared.Customer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.EntityFrameworkCore;
 
 namespace FuelGasStation.Blazor.Server.Controllers
 {
