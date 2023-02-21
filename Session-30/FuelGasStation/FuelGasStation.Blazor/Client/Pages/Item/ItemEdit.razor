@@ -1,0 +1,106 @@
+﻿@page "/itemlist/edit/{Id:int?}"
+@using FuelGasStation.Blazor.Shared.Item;
+@using FuelGasStation.Model.Enums;
+@inject HttpClient httpClient
+@inject NavigationManager navigationManager
+
+<PageTitle>Item Edit</PageTitle>
+
+<h4 class="display-3">Item Edit</h4>
+<h5>Create/Edit</h5>
+
+<style>
+    body{
+        background-color: whitesmoke
+    }
+    h4{
+        font-weight: bold
+    }
+</style>
+
+@if (Item == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <div class=" row">
+        <div class="col-md-6">
+            <label class="form-label">Code</label>
+            <input class="form-control" @bind=@Item.Code/>
+        </div>
+    </div>
+    <div class=" row">
+        <div class="col-md-6">
+            <label class="form-label">Description</label>
+            <input class="form-control" @bind=@Item.Description />
+        </div>
+    </div>
+    <div class=" row">
+        <div class="col-md-6">
+            <label class="form-label">Item Type</label>
+            <select class="form-control" @bind=Item.ItemType>
+                @foreach (var enumValue in Enum.GetValues<ItemType>())
+                {
+                    <option value="@enumValue">@enumValue</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class=" row">
+        <div class="col-md-6">
+            <label class="form-label">Cost</label>
+            <input class="form-control" @bind=@Item.Cost />
+        </div>
+    </div>
+    <div class=" row">
+        <div class="col-md-6">
+            <label class="form-label">Price</label>
+            <input class="form-control" @bind=@Item.Price />
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col">
+            <button class="btn btn-success" @onclick="OnSave">Save</button>
+            <button class="btn btn-danger" @onclick="OnCancel">Cancel</button>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter] public int? id { get; set; }
+    ItemEditDto Item { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if(id == null)
+        {
+            Item = new();
+        }
+        else
+        {
+            Item = await httpClient.GetFromJsonAsync<ItemEditDto>($"item/{id}");
+        }
+
+    }
+
+    private void OnCancel()
+    {
+        navigationManager.NavigateTo("itemlist");
+    }
+
+    private async Task OnSave()
+    {
+        HttpResponseMessage? response = null;
+        if(id == null)
+        {
+            response = await httpClient.PostAsJsonAsync("item", Item);
+        }
+        else
+        {
+            response = await httpClient.PutAsJsonAsync("item", Item);
+        }
+        response.EnsureSuccessStatusCode();
+        navigationManager.NavigateTo("itemlist");
+    }
+}
