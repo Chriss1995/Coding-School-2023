@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FuelGasStation.Model.Enums
 {
-   public enum PaymentMetod
+   public enum PaymentMethod
     {
         CreditCard = 1,
         Cash = 2

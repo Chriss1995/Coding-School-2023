@@ -9,7 +9,7 @@ namespace FuelGasStation.Model
 {
     public class Transaction
     {
-        public Transaction(decimal totalValue, PaymentMetod paymentMetod) 
+        public Transaction(decimal totalValue, PaymentMethod paymentMetod) 
         {
             DateTime =  DateTime.Now;
             TotalValue = totalValue;
@@ -18,7 +18,7 @@ namespace FuelGasStation.Model
         }
         public int Id { get; set; }
         public DateTime DateTime { get; set; }
-        public PaymentMetod PaymentMetod { get; set; }
+        public PaymentMethod PaymentMetod { get; set; }
         public decimal TotalValue { get; set; }
 
         //Relations
