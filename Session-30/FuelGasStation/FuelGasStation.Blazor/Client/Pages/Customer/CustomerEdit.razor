@@ -81,7 +81,7 @@ else
         }
         else
         {
-            response = await httpClient.PutAsJsonAsync("Customer", Customer);
+            response = await httpClient.PutAsJsonAsync("customer", Customer);
         }
         response.EnsureSuccessStatusCode();
         navigationManager.NavigateTo("customerlist");

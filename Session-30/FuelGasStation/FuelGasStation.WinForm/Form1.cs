@@ -1,3 +1,6 @@
+using DevExpress.Mvvm.POCO;
+using DevExpress.PivotGrid.Criteria;
+using DevExpress.Utils;
 using FuelGasStation.Blazor.Shared.Customer;
 using System.Net.Http;
 using System.Net.Http.Json;
@@ -5,8 +8,8 @@ namespace FuelGasStation.WinForm
 {
     public partial class Form1 : Form
     {
-
-
+        CustomerEditDto Customer { get; set; }
+        
         private readonly HttpClient client;
         public Form1()
         {
@@ -34,6 +37,28 @@ namespace FuelGasStation.WinForm
         {
             var response = await client.GetFromJsonAsync<List<CustomerListDto?>>("customer");
             return response.ToList();
+        }
+
+        private async Task CreateCustomer()
+        {
+            var response = await client.PostAsJsonAsync("customer", Customer);
+            response.EnsureSuccessStatusCode();
+        }
+
+        private async Task GetCustomer(CustomerEditDto customer)
+        {
+            var response = await client.GetFromJsonAsync<CustomerEditDto>($"customer/{customer.Id}");
+        }
+        private async Task EditCustomer(CustomerEditDto customer)
+        {
+            var response = await client.PutAsJsonAsync("customer", Customer);
+            response.EnsureSuccessStatusCode();
+        }
+
+        private async Task DeleteCustomer(CustomerListDto customer)
+        {
+            var response = await client.DeleteAsync($"customer/{customer.Id}");
+            response.EnsureSuccessStatusCode();
         }
     }
 }
