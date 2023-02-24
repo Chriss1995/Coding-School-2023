@@ -1,6 +1,7 @@
 using DevExpress.Mvvm.POCO;
 using DevExpress.PivotGrid.Criteria;
 using DevExpress.Utils;
+using DevExpress.XtraEditors;
 using FuelGasStation.Blazor.Shared.Customer;
 using System.Net.Http;
 using System.Net.Http.Json;
@@ -9,6 +10,7 @@ namespace FuelGasStation.WinForm
     public partial class Form1 : Form
     {
         CustomerEditDto Customer { get; set; }
+        public virtual NavigatorButton Append { get; }
         
         private readonly HttpClient client;
         public Form1()
@@ -59,6 +61,16 @@ namespace FuelGasStation.WinForm
         {
             var response = await client.DeleteAsync($"customer/{customer.Id}");
             response.EnsureSuccessStatusCode();
+        }
+
+        private void gridControl1_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

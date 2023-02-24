@@ -47,14 +47,15 @@
             // 
             // gridControl1
             // 
-            this.gridControl1.Location = new System.Drawing.Point(72, 22);
+            this.gridControl1.Location = new System.Drawing.Point(12, 62);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(625, 268);
+            this.gridControl1.Size = new System.Drawing.Size(682, 360);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.UseEmbeddedNavigator = true;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.gridControl1.Click += new System.EventHandler(this.gridControl1_Click);
             // 
             // gridView1
             // 
@@ -110,7 +111,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(858, 450);
             this.Controls.Add(this.gridControl1);
             this.Name = "Form1";
             this.Text = "Form1";
