@@ -3,6 +3,7 @@ using DevExpress.PivotGrid.Criteria;
 using DevExpress.Utils;
 using DevExpress.XtraEditors;
 using FuelGasStation.Blazor.Shared.Customer;
+using FuelGasStation.Blazor.Shared.Item;
 using System.Net.Http;
 using System.Net.Http.Json;
 namespace FuelGasStation.WinForm
@@ -35,6 +36,13 @@ namespace FuelGasStation.WinForm
             customerBindingSource.DataSource = await GetCustomers();
             gridControl1.DataSource = customerBindingSource;
         }
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            customerBindingSource.DataSource =  CreateCustomer();
+            gridControl1.DataSource = customerBindingSource;
+
+        }
+
         private async Task<List<CustomerListDto?>> GetCustomers()
         {
             var response = await client.GetFromJsonAsync<List<CustomerListDto?>>("customer");
@@ -47,19 +55,32 @@ namespace FuelGasStation.WinForm
             response.EnsureSuccessStatusCode();
         }
 
-        private async Task GetCustomer(CustomerEditDto customer)
+        private async Task GetItem(CustomerEditDto customer)
         {
+            var response = await client.GetFromJsonAsync<ItemEditDto>($"customer/{customer.Id}");
+        }
+        private async Task EditItem(CustomerEditDto item)
+        {
+            var response = await client.PutAsJsonAsync("item", Customer);
+            response.EnsureSuccessStatusCode();
+        }
 
+        private async Task DeleteItem(CustomerListDto customer)
+        {
+            var response = await client.DeleteAsync($"customer/ {customer.Id}");
+            response.EnsureSuccessStatusCode();
         }
 
         private void gridControl1_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private async void button1_Click(object sender, EventArgs e)
         {
 
         }
+
+
     }
 }

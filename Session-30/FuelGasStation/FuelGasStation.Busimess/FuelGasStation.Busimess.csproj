@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FuelGasStation.Blazor\Server\FuelGasStation.Blazor.Server.csproj" />
+    <ProjectReference Include="..\FuelGasStation.Blazor\Shared\FuelGasStation.Blazor.Shared.csproj" />
+    <ProjectReference Include="..\FuelGasStation.EF\FuelGasStation.EF.csproj" />
+    <ProjectReference Include="..\FuelGasStation\FuelGasStation.Model.csproj" />
+  </ItemGroup>
+
+</Project>

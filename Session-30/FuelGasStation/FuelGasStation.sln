@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuelGasStation.Blazor.Clien
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuelGasStation.Blazor.Shared", "FuelGasStation.Blazor\Shared\FuelGasStation.Blazor.Shared.csproj", "{E5D1FAF6-F5FF-4585-BA55-F9A8C677470C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuelGasStation.WinForm", "FuelGasStation.WinForm\FuelGasStation.WinForm.csproj", "{88DFD81B-C85D-42A8-B6F2-096F144D44D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FuelGasStation.WinForm", "FuelGasStation.WinForm\FuelGasStation.WinForm.csproj", "{88DFD81B-C85D-42A8-B6F2-096F144D44D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuelGasStation.Busimess", "FuelGasStation.Busimess\FuelGasStation.Busimess.csproj", "{127B915A-E287-4486-8E85-9C94C084903B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{88DFD81B-C85D-42A8-B6F2-096F144D44D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88DFD81B-C85D-42A8-B6F2-096F144D44D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88DFD81B-C85D-42A8-B6F2-096F144D44D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{127B915A-E287-4486-8E85-9C94C084903B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{127B915A-E287-4486-8E85-9C94C084903B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{127B915A-E287-4486-8E85-9C94C084903B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{127B915A-E287-4486-8E85-9C94C084903B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
