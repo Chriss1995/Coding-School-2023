@@ -31,14 +31,18 @@
             this.components = new System.ComponentModel.Container();
             this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.customerEditDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.coId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSurname = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCardNumber = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.btnDelet = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerEditDtoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,6 +52,7 @@
             // 
             // gridControl1
             // 
+            this.gridControl1.DataSource = this.customerEditDtoBindingSource;
             this.gridControl1.Location = new System.Drawing.Point(12, 62);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
@@ -56,7 +61,10 @@
             this.gridControl1.UseEmbeddedNavigator = true;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            this.gridControl1.Click += new System.EventHandler(this.gridControl1_Click);
+            // 
+            // customerEditDtoBindingSource
+            // 
+            this.customerEditDtoBindingSource.DataSource = typeof(FuelGasStation.Blazor.Shared.Customer.CustomerEditDto);
             // 
             // gridView1
             // 
@@ -110,19 +118,41 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(54, 9);
+            this.btnAdd.Location = new System.Drawing.Point(54, 6);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(94, 29);
+            this.btnAdd.Size = new System.Drawing.Size(89, 33);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnDelet
+            // 
+            this.btnDelet.Location = new System.Drawing.Point(235, 7);
+            this.btnDelet.Name = "btnDelet";
+            this.btnDelet.Size = new System.Drawing.Size(78, 32);
+            this.btnDelet.TabIndex = 3;
+            this.btnDelet.Text = "Delete";
+            this.btnDelet.UseVisualStyleBackColor = true;
+            this.btnDelet.Click += new System.EventHandler(this.btnDelet_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(406, 6);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(78, 32);
+            this.btnEdit.TabIndex = 4;
+            this.btnEdit.Text = "Save";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(858, 450);
+            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.btnDelet);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.gridControl1);
             this.Name = "Form1";
@@ -130,6 +160,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerEditDtoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -144,5 +175,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn colSurname;
         private DevExpress.XtraGrid.Columns.GridColumn colCardNumber;
         private Button btnAdd;
+        private BindingSource customerEditDtoBindingSource;
+        private Button btnDelet;
+        private Button btnEdit;
     }
 }

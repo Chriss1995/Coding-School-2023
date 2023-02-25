@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.grvItem = new DevExpress.XtraGrid.GridControl();
+            this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCode = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -37,24 +38,28 @@
             this.colItemType = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCost = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPrice = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.itemBindSource = new System.Windows.Forms.BindingSource(this.components);
-            this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.dntDekete = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grvItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemBindSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // grvItem
             // 
             this.grvItem.DataSource = this.itemBindingSource;
-            this.grvItem.Location = new System.Drawing.Point(95, 37);
+            this.grvItem.Location = new System.Drawing.Point(27, 63);
             this.grvItem.MainView = this.gridView1;
             this.grvItem.Name = "grvItem";
             this.grvItem.Size = new System.Drawing.Size(760, 380);
             this.grvItem.TabIndex = 0;
             this.grvItem.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            // 
+            // itemBindingSource
+            // 
+            this.itemBindingSource.DataSource = typeof(FuelGasStation.Model.Item);
             // 
             // gridView1
             // 
@@ -126,28 +131,51 @@
             this.colPrice.VisibleIndex = 4;
             this.colPrice.Width = 94;
             // 
-            // itemBindSource
+            // btnAdd
             // 
-            this.itemBindSource.DataSource = typeof(FuelGasStation.Model.Item);
-            this.itemBindSource.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
+            this.btnAdd.Location = new System.Drawing.Point(67, 12);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(89, 33);
+            this.btnAdd.TabIndex = 3;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // itemBindingSource
+            // dntDekete
             // 
-            this.itemBindingSource.DataSource = typeof(FuelGasStation.Model.Item);
+            this.dntDekete.Location = new System.Drawing.Point(243, 12);
+            this.dntDekete.Name = "dntDekete";
+            this.dntDekete.Size = new System.Drawing.Size(89, 45);
+            this.dntDekete.TabIndex = 4;
+            this.dntDekete.Text = "Delete";
+            this.dntDekete.UseVisualStyleBackColor = true;
+            this.dntDekete.Click += new System.EventHandler(this.dntDekete_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(440, 0);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(89, 45);
+            this.btnEdit.TabIndex = 5;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // ItemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1085, 450);
+            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.dntDekete);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.grvItem);
             this.Name = "ItemForm";
             this.Text = "ItemForm";
             this.Load += new System.EventHandler(this.ItemForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grvItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemBindSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -162,7 +190,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn colItemType;
         private DevExpress.XtraGrid.Columns.GridColumn colCost;
         private DevExpress.XtraGrid.Columns.GridColumn colPrice;
-        private BindingSource itemBindSource;
+        private Button btnAdd;
+        private Button dntDekete;
         private BindingSource itemBindingSource;
+        private Button btnEdit;
     }
 }

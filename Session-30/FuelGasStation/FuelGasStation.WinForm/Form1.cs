@@ -3,14 +3,14 @@ using DevExpress.PivotGrid.Criteria;
 using DevExpress.Utils;
 using DevExpress.XtraEditors;
 using FuelGasStation.Blazor.Shared.Customer;
-using FuelGasStation.Blazor.Shared.Item;
+using FuelGasStation.Model;
 using System.Net.Http;
 using System.Net.Http.Json;
 namespace FuelGasStation.WinForm
 {
     public partial class Form1 : Form
     {
-        CustomerEditDto Customer { get; set; }
+        List<CustomerListDto> Customers { get; set; }
         public virtual NavigatorButton Append { get; }
         
         private readonly HttpClient client;
@@ -20,67 +20,42 @@ namespace FuelGasStation.WinForm
             client = new HttpClient();
             client.BaseAddress = new Uri("https://localhost:7222/");
         }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
-            _ = SetControlProperties();
+            SetControlProperties();
 
         }
-        private async Task SetControlProperties()
+        private async void SetControlProperties()
         {
-            customerBindingSource.DataSource = await GetCustomers();
+            Customers = await client.GetFromJsonAsync<List<CustomerListDto?>>("customer");
+            customerBindingSource.DataSource = Customers;
             gridControl1.DataSource = customerBindingSource;
         }
-        private void btnAdd_Click(object sender, EventArgs e)
+        private async void btnAdd_Click(object sender, EventArgs e)
         {
-            customerBindingSource.DataSource =  CreateCustomer();
-            gridControl1.DataSource = customerBindingSource;
-
-        }
-
-        private async Task<List<CustomerListDto?>> GetCustomers()
-        {
-            var response = await client.GetFromJsonAsync<List<CustomerListDto?>>("customer");
-            return response.ToList();
-        }
-
-        private async Task CreateCustomer()
-        {
-            var response = await client.PostAsJsonAsync("customer", Customer);
+            CustomerListDto customer = customerBindingSource.Current as CustomerListDto;
+            var response = await client.PostAsJsonAsync("customer", customer);
             response.EnsureSuccessStatusCode();
-        }
+            MessageBox.Show("Customer Created!");
+            SetControlProperties();
 
-        private async Task GetCustomer(CustomerEditDto customer)
-        {
-            var response = await client.GetFromJsonAsync<ItemEditDto>($"customer/{customer.Id}");
         }
-        private async Task EditCustomer(CustomerEditDto item)
+        private async void btnDelet_Click(object sender, EventArgs e)
         {
-            var response = await client.PutAsJsonAsync("customer", Customer);
-            response.EnsureSuccessStatusCode();
-        }
-
-        private async Task DeleteCustomer(CustomerListDto customer)
-        {
+            CustomerListDto customer = customerBindingSource.Current as CustomerListDto;
             var response = await client.DeleteAsync($"customer/ {customer.Id}");
             response.EnsureSuccessStatusCode();
+            MessageBox.Show("Customer Deleted!");
+            SetControlProperties();
         }
 
-        private void gridControl1_Click(object sender, EventArgs e)
+        private async void btnEdit_Click(object sender, EventArgs e)
         {
-
+            CustomerListDto customer = customerBindingSource.Current as CustomerListDto;
+            var response = await client.PutAsJsonAsync("customer", customer);
+            response.EnsureSuccessStatusCode();
+            MessageBox.Show("Customer Changes Saved!");
+            SetControlProperties();
         }
-
-        private async void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
     }
 }

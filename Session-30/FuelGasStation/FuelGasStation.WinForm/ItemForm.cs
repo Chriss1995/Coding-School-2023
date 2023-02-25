@@ -1,4 +1,5 @@
-﻿using FuelGasStation.Blazor.Shared.Item;
+﻿using FuelGasStation.Blazor.Shared.Customer;
+using FuelGasStation.Blazor.Shared.Item;
 using FuelGasStation.Model;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace FuelGasStation.WinForm
 {
     public partial class ItemForm : Form
     {
-        ItemEditDto Item { get; set; }
+        List<ItemListDto> Items { get; set; }
         private readonly HttpClient client;
         public ItemForm()
         {
@@ -24,47 +25,43 @@ namespace FuelGasStation.WinForm
             client = new HttpClient();
             client.BaseAddress = new Uri("https://localhost:7222/");
         }
-
-        private void bindingSource1_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void ItemForm_Load(object sender, EventArgs e)
         {
-            _ = SetControlProperties();
+            SetControlProperties();
         }
 
         private async Task SetControlProperties()
         {
-            itemBindingSource.DataSource = await GetItems();
+
+            Items = await client.GetFromJsonAsync<List<ItemListDto?>>("item");
+            itemBindingSource.DataSource = Items;
             grvItem.DataSource = itemBindingSource;
         }
-        private async Task<List<ItemListDto?>> GetItems()
+        private async void btnAdd_Click(object sender, EventArgs e)
         {
-            var response = await client.GetFromJsonAsync<List<ItemListDto?>>("item");
-            return response.ToList();
-        }
-        private async Task CreateItem()
-        {
-            var response = await client.PostAsJsonAsync("item", Item);
+            ItemListDto item = itemBindingSource.Current as ItemListDto;
+            var response = await client.PostAsJsonAsync("item", item);
             response.EnsureSuccessStatusCode();
+            MessageBox.Show("Item Created!");
+            SetControlProperties();
         }
 
-        private async Task GetItem(ItemEditDto item)
+        private async void dntDekete_Click(object sender, EventArgs e)
         {
-            var response = await client.GetFromJsonAsync<ItemEditDto>($"item/{item.Id}");
-        }
-        private async Task EditItem(ItemEditDto item)
-        {
-            var response = await client.PutAsJsonAsync("item", Item);
+            ItemListDto item = itemBindingSource.Current as ItemListDto;
+            var response = await client.DeleteAsync($"item/ {item.Id}");
             response.EnsureSuccessStatusCode();
+            MessageBox.Show("Item Deleted!");
+            SetControlProperties();
         }
 
-        private async Task DeleteItem(ItemListDto item)
+        private async void btnEdit_Click(object sender, EventArgs e)
         {
-            var response = await client.DeleteAsync($"item/{item.Id}");
+            ItemListDto item = itemBindingSource.Current as ItemListDto;
+            var response = await client.PutAsJsonAsync("item", item);
             response.EnsureSuccessStatusCode();
+            MessageBox.Show("Item Changes Saved!");
+            SetControlProperties();
         }
     }
 }
