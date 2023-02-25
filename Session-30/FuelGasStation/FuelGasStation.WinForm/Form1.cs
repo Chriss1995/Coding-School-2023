@@ -55,17 +55,17 @@ namespace FuelGasStation.WinForm
             response.EnsureSuccessStatusCode();
         }
 
-        private async Task GetItem(CustomerEditDto customer)
+        private async Task GetCustomer(CustomerEditDto customer)
         {
             var response = await client.GetFromJsonAsync<ItemEditDto>($"customer/{customer.Id}");
         }
-        private async Task EditItem(CustomerEditDto item)
+        private async Task EditCustomer(CustomerEditDto item)
         {
             var response = await client.PutAsJsonAsync("item", Customer);
             response.EnsureSuccessStatusCode();
         }
 
-        private async Task DeleteItem(CustomerListDto customer)
+        private async Task DeleteCustomer(CustomerListDto customer)
         {
             var response = await client.DeleteAsync($"customer/ {customer.Id}");
             response.EnsureSuccessStatusCode();
