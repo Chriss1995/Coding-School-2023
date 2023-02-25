@@ -37,7 +37,7 @@ namespace FuelGasStation.Busimess
         
         public decimal CalcDiscount(TransactionLineEditDto transactionLine)
         {
-            transactionLine.DiscountValue = transactionLine.NetValue * transactionLine.Quantity;
+            transactionLine.DiscountValue = transactionLine.NetValue * transactionLine.PercentDiscount;
             return transactionLine.DiscountValue;
         }
         public decimal CalcTotal(TransactionLineEditDto transactionLine)

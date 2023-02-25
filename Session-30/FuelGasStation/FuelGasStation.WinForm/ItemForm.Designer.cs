@@ -52,8 +52,9 @@
             this.grvItem.Location = new System.Drawing.Point(27, 63);
             this.grvItem.MainView = this.gridView1;
             this.grvItem.Name = "grvItem";
-            this.grvItem.Size = new System.Drawing.Size(760, 380);
+            this.grvItem.Size = new System.Drawing.Size(780, 375);
             this.grvItem.TabIndex = 0;
+            this.grvItem.UseEmbeddedNavigator = true;
             this.grvItem.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
@@ -153,7 +154,7 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(440, 0);
+            this.btnEdit.Location = new System.Drawing.Point(446, 12);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(89, 45);
             this.btnEdit.TabIndex = 5;
