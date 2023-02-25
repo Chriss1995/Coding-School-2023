@@ -61,7 +61,7 @@ namespace FuelGasStation.WinForm
         }
         private async Task EditCustomer(CustomerEditDto item)
         {
-            var response = await client.PutAsJsonAsync("item", Customer);
+            var response = await client.PutAsJsonAsync("customer", Customer);
             response.EnsureSuccessStatusCode();
         }
 
