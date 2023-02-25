@@ -49,18 +49,7 @@ namespace FuelGasStation.WinForm
 
         private async Task GetCustomer(CustomerEditDto customer)
         {
-            var response = await client.GetFromJsonAsync<CustomerEditDto>($"customer/{customer.Id}");
-        }
-        private async Task EditCustomer(CustomerEditDto customer)
-        {
-            var response = await client.PutAsJsonAsync("customer", Customer);
-            response.EnsureSuccessStatusCode();
-        }
 
-        private async Task DeleteCustomer(CustomerListDto customer)
-        {
-            var response = await client.DeleteAsync($"customer/{customer.Id}");
-            response.EnsureSuccessStatusCode();
         }
 
         private void gridControl1_Click(object sender, EventArgs e)
