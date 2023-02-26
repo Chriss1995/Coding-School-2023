@@ -303,6 +303,7 @@
             this.btnAddCustomer.TabIndex = 2;
             this.btnAddCustomer.Text = "Add Customer";
             this.btnAddCustomer.UseVisualStyleBackColor = true;
+            this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
             // 
             // btnAddTrsasLine
             // 
@@ -312,6 +313,7 @@
             this.btnAddTrsasLine.TabIndex = 3;
             this.btnAddTrsasLine.Text = "Add TransLine";
             this.btnAddTrsasLine.UseVisualStyleBackColor = true;
+            this.btnAddTrsasLine.Click += new System.EventHandler(this.btnAddTrsasLine_Click);
             // 
             // label1
             // 

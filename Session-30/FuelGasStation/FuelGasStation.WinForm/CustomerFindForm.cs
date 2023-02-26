@@ -10,21 +10,26 @@ using System.Windows.Forms;
 
 namespace FuelGasStation.WinForm
 {
-    public partial class TransactionForm : Form
+    public partial class CustomerFindForm : Form
     {
-        public TransactionForm()
+        public CustomerFindForm()
         {
             InitializeComponent();
         }
 
-        private void btnAddCustomer_Click(object sender, EventArgs e)
+        private void btnAddCust_Click(object sender, EventArgs e)
         {
             this.Hide();
-            CustomerFindForm customerFind = new CustomerFindForm();
-           customerFind.Show();
+            Form1 customerForm = new Form1();
+            customerForm.Show();
         }
 
-        private void btnAddTrsasLine_Click(object sender, EventArgs e)
+        private void btnAddTransactio_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
         {
             this.Hide();
             TransactionForm transactionForm = new TransactionForm();
