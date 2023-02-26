@@ -40,6 +40,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelet = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerEditDtoBindingSource)).BeginInit();
@@ -118,7 +119,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(54, 6);
+            this.btnAdd.Location = new System.Drawing.Point(731, 112);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(89, 33);
             this.btnAdd.TabIndex = 2;
@@ -128,41 +129,53 @@
             // 
             // btnDelet
             // 
-            this.btnDelet.Location = new System.Drawing.Point(235, 7);
+            this.btnDelet.Location = new System.Drawing.Point(731, 181);
             this.btnDelet.Name = "btnDelet";
-            this.btnDelet.Size = new System.Drawing.Size(78, 32);
-            this.btnDelet.TabIndex = 3;
+            this.btnDelet.Size = new System.Drawing.Size(89, 33);
+            this.btnDelet.TabIndex = 2;
             this.btnDelet.Text = "Delete";
             this.btnDelet.UseVisualStyleBackColor = true;
             this.btnDelet.Click += new System.EventHandler(this.btnDelet_Click);
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(406, 6);
+            this.btnEdit.Location = new System.Drawing.Point(731, 255);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(78, 32);
-            this.btnEdit.TabIndex = 4;
+            this.btnEdit.Size = new System.Drawing.Size(89, 33);
+            this.btnEdit.TabIndex = 2;
             this.btnEdit.Text = "Save";
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(367, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(129, 28);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Customer List";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(858, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnDelet);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.gridControl1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Customer Form";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerEditDtoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -178,5 +191,6 @@
         private BindingSource customerEditDtoBindingSource;
         private Button btnDelet;
         private Button btnEdit;
+        private Label label1;
     }
 }

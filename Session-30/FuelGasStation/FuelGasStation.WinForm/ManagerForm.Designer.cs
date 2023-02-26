@@ -31,6 +31,7 @@
             this.btnItems = new System.Windows.Forms.Button();
             this.btnCustomers = new System.Windows.Forms.Button();
             this.btnTransactions = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnItems
@@ -63,17 +64,30 @@
             this.btnTransactions.UseVisualStyleBackColor = true;
             this.btnTransactions.Click += new System.EventHandler(this.btnTransactions_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(290, 74);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(174, 31);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Choose the  tab";
+            // 
             // ManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnTransactions);
             this.Controls.Add(this.btnCustomers);
             this.Controls.Add(this.btnItems);
             this.Name = "ManagerForm";
-            this.Text = "ManagerForm";
+            this.Text = "Manager Form";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -82,5 +96,6 @@
         private Button btnItems;
         private Button btnCustomers;
         private Button btnTransactions;
+        private Label label1;
     }
 }

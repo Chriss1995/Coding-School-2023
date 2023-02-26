@@ -46,7 +46,7 @@
             // 
             // btnCashier
             // 
-            this.btnCashier.Location = new System.Drawing.Point(326, 209);
+            this.btnCashier.Location = new System.Drawing.Point(310, 209);
             this.btnCashier.Name = "btnCashier";
             this.btnCashier.Size = new System.Drawing.Size(138, 50);
             this.btnCashier.TabIndex = 1;
@@ -67,9 +67,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(355, 96);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 20);
+            this.label1.Size = new System.Drawing.Size(77, 31);
             this.label1.TabIndex = 3;
             this.label1.Text = "Log In";
             // 

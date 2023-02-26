@@ -23,5 +23,10 @@ namespace FuelGasStation.WinForm
             ItemForm itemForm = new ItemForm();
             itemForm.Show();
         }
+
+        private void StaffFormcs_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -30,6 +30,7 @@
         {
             this.btnTransactions = new System.Windows.Forms.Button();
             this.btnCustomers = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnTransactions
@@ -52,16 +53,29 @@
             this.btnCustomers.UseVisualStyleBackColor = true;
             this.btnCustomers.Click += new System.EventHandler(this.btnCustomers_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(310, 72);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(174, 31);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Choose the  tab";
+            // 
             // CashierForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnTransactions);
             this.Controls.Add(this.btnCustomers);
             this.Name = "CashierForm";
-            this.Text = "CashierForm";
+            this.Text = "Cashier Form";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -69,5 +83,6 @@
 
         private Button btnTransactions;
         private Button btnCustomers;
+        private Label label1;
     }
 }

@@ -41,6 +41,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.dntDekete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grvItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -134,50 +135,62 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(67, 12);
+            this.btnAdd.Location = new System.Drawing.Point(911, 113);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(89, 33);
-            this.btnAdd.TabIndex = 3;
+            this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // dntDekete
             // 
-            this.dntDekete.Location = new System.Drawing.Point(243, 12);
+            this.dntDekete.Location = new System.Drawing.Point(911, 180);
             this.dntDekete.Name = "dntDekete";
-            this.dntDekete.Size = new System.Drawing.Size(89, 45);
-            this.dntDekete.TabIndex = 4;
+            this.dntDekete.Size = new System.Drawing.Size(89, 33);
+            this.dntDekete.TabIndex = 3;
             this.dntDekete.Text = "Delete";
             this.dntDekete.UseVisualStyleBackColor = true;
             this.dntDekete.Click += new System.EventHandler(this.dntDekete_Click);
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(446, 12);
+            this.btnEdit.Location = new System.Drawing.Point(911, 261);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(89, 45);
-            this.btnEdit.TabIndex = 5;
+            this.btnEdit.Size = new System.Drawing.Size(89, 33);
+            this.btnEdit.TabIndex = 3;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(437, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(101, 28);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Item Form";
             // 
             // ItemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1085, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.dntDekete);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.grvItem);
             this.Name = "ItemForm";
-            this.Text = "ItemForm";
+            this.Text = "Item Form";
             this.Load += new System.EventHandler(this.ItemForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grvItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -195,5 +208,6 @@
         private Button dntDekete;
         private BindingSource itemBindingSource;
         private Button btnEdit;
+        private Label label1;
     }
 }
