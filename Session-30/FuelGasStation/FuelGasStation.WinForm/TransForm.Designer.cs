@@ -272,7 +272,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.gridControl1);
             this.Name = "TransForm";
-            this.Text = "TransForm";
+            this.Text = "Adding Transaction Lines";
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemEditDtoBindingSource)).EndInit();

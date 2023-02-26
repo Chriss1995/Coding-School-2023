@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.transactionEditDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.grvTrans = new DevExpress.XtraGrid.GridControl();
+            this.transactionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDateTime = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -40,8 +40,8 @@
             this.colCustomerSurname = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEmployeeID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEmployeeSurname = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-            this.transactionLineEditDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.grvTransLine = new DevExpress.XtraGrid.GridControl();
+            this.transactionLineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colId1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colQuantity = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -57,28 +57,28 @@
             this.btnAddTrsasLine = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.transactionEditDtoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvTrans)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transactionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.transactionLineEditDtoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvTransLine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transactionLineBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.SuspendLayout();
             // 
-            // gridControl1
+            // grvTrans
             // 
-            this.gridControl1.DataSource = this.transactionEditDtoBindingSource;
-            this.gridControl1.Location = new System.Drawing.Point(12, 64);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(840, 250);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grvTrans.DataSource = this.transactionBindingSource;
+            this.grvTrans.Location = new System.Drawing.Point(12, 64);
+            this.grvTrans.MainView = this.gridView1;
+            this.grvTrans.Name = "grvTrans";
+            this.grvTrans.Size = new System.Drawing.Size(840, 250);
+            this.grvTrans.TabIndex = 0;
+            this.grvTrans.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
-            // transactionEditDtoBindingSource
+            // transactionBindingSource
             // 
-            this.transactionEditDtoBindingSource.DataSource = typeof(FuelGasStation.Blazor.Shared.Transaction.TransactionEditDto);
+            this.transactionBindingSource.DataSource = typeof(FuelGasStation.Blazor.Shared.Transaction.TransactionEditDto);
             // 
             // gridView1
             // 
@@ -91,7 +91,7 @@
             this.colCustomerSurname,
             this.colEmployeeID,
             this.colEmployeeSurname});
-            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.GridControl = this.grvTrans;
             this.gridView1.Name = "gridView1";
             // 
             // colId
@@ -168,21 +168,21 @@
             this.colEmployeeSurname.VisibleIndex = 4;
             this.colEmployeeSurname.Width = 94;
             // 
-            // gridControl2
+            // grvTransLine
             // 
-            this.gridControl2.DataSource = this.transactionLineEditDtoBindingSource;
-            this.gridControl2.Location = new System.Drawing.Point(12, 360);
-            this.gridControl2.MainView = this.gridView2;
-            this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(977, 233);
-            this.gridControl2.TabIndex = 1;
-            this.gridControl2.UseEmbeddedNavigator = true;
-            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grvTransLine.DataSource = this.transactionLineBindingSource;
+            this.grvTransLine.Location = new System.Drawing.Point(12, 360);
+            this.grvTransLine.MainView = this.gridView2;
+            this.grvTransLine.Name = "grvTransLine";
+            this.grvTransLine.Size = new System.Drawing.Size(977, 233);
+            this.grvTransLine.TabIndex = 1;
+            this.grvTransLine.UseEmbeddedNavigator = true;
+            this.grvTransLine.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
             // 
-            // transactionLineEditDtoBindingSource
+            // transactionLineBindingSource
             // 
-            this.transactionLineEditDtoBindingSource.DataSource = typeof(FuelGasStation.Blazor.Shared.TransactionLine.TransactionLineEditDto);
+            this.transactionLineBindingSource.DataSource = typeof(FuelGasStation.Blazor.Shared.TransactionLine.TransactionLineEditDto);
             // 
             // gridView2
             // 
@@ -197,7 +197,7 @@
             this.colTransactionID,
             this.colItemCode,
             this.colItemID});
-            this.gridView2.GridControl = this.gridControl2;
+            this.gridView2.GridControl = this.grvTransLine;
             this.gridView2.Name = "gridView2";
             // 
             // colId1
@@ -344,15 +344,16 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAddTrsasLine);
             this.Controls.Add(this.btnAddCustomer);
-            this.Controls.Add(this.gridControl2);
-            this.Controls.Add(this.gridControl1);
+            this.Controls.Add(this.grvTransLine);
+            this.Controls.Add(this.grvTrans);
             this.Name = "TransactionForm";
             this.Text = "Transaction Form";
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.transactionEditDtoBindingSource)).EndInit();
+            this.Load += new System.EventHandler(this.TransactionForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.grvTrans)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transactionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.transactionLineEditDtoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvTransLine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transactionLineBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -361,8 +362,8 @@
 
         #endregion
 
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private BindingSource transactionEditDtoBindingSource;
+        private DevExpress.XtraGrid.GridControl grvTrans;
+        private BindingSource transactionBindingSource;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colId;
         private DevExpress.XtraGrid.Columns.GridColumn colDateTime;
@@ -372,8 +373,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn colCustomerSurname;
         private DevExpress.XtraGrid.Columns.GridColumn colEmployeeID;
         private DevExpress.XtraGrid.Columns.GridColumn colEmployeeSurname;
-        private DevExpress.XtraGrid.GridControl gridControl2;
-        private BindingSource transactionLineEditDtoBindingSource;
+        private DevExpress.XtraGrid.GridControl grvTransLine;
+        private BindingSource transactionLineBindingSource;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraGrid.Columns.GridColumn colId1;
         private DevExpress.XtraGrid.Columns.GridColumn colQuantity;
