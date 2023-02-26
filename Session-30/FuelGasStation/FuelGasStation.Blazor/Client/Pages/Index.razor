@@ -1,4 +1,6 @@
 ﻿@page "/"
+@using FuelGasStation.Model.Enums;
+@inject EmployeeUser User;
 
 <PageTitle>Index</PageTitle>
 
@@ -6,4 +8,24 @@
 
 <h3>This the Home page for our app.</h3>
 <br>
+<br />
+<br />
+<h2><i>Log In </i></h2>
 <p>What is your Position in the Station?</p>
+
+<div class="row">
+    <div class="col-md-6">
+        <button type="button" class="btn btn-primary" @onclick= "()=>SetUserRole(EmployeeType.Manager)">Manager</button>
+        <button type="button" class="btn btn-primary" @onclick= "()=>SetUserRole(EmployeeType.Cashier)">Cashier</button>
+        <button type="button" class="btn btn-primary" @onclick= "()=>SetUserRole(EmployeeType.Staff)">Staff</button>
+    </div>
+</div>
+
+@code{
+    public EmployeeType role { get; set;}
+
+    void SetUserRole(EmployeeType emp)
+    {
+        User.Role = emp;
+    }
+}
