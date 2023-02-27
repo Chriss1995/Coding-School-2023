@@ -38,8 +38,6 @@ namespace FuelGasStation.Blazor.Server.Controllers
 
             foreach(var employee in employees )
             {
-                //totalSalaryEmployees += employees.Select(employee => employee.SalaryPerMonth)
-                //.SingleOrDefault();
                 totalSalaryEmployees += employee.SalaryPerMonth;
             }
 
