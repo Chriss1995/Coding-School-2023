@@ -7,7 +7,7 @@ using Microsoft.VisualBasic;
 
 namespace FuelGasStation.Blazor.Server.Controllers
 {
-    [Route("/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class MonthlyLedgerController : ControllerBase
     {
@@ -38,8 +38,9 @@ namespace FuelGasStation.Blazor.Server.Controllers
 
             foreach(var employee in employees )
             {
-                totalSalaryEmployees += employees.Select(employee => employee.SalaryPerMonth)
-                                                 .SingleOrDefault();
+                //totalSalaryEmployees += employees.Select(employee => employee.SalaryPerMonth)
+                //.SingleOrDefault();
+                totalSalaryEmployees += employee.SalaryPerMonth;
             }
 
             var groupedTransactions = transactions.GroupBy(transactions => new { transactions.DateTime.Year, transactions.DateTime.Month })
