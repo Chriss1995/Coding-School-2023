@@ -1,5 +1,4 @@
-﻿using FuelGasStation.Blazor.Shared.Customer;
-using FuelGasStation.Blazor.Shared.Item;
+﻿using FuelGasStation.Blazor.Shared.Item;
 using FuelGasStation.Model;
 using System;
 using System.Collections.Generic;

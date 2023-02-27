@@ -29,16 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.grvItem = new DevExpress.XtraGrid.GridControl();
+            this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.itemEditDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.colPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDescription = new DevExpress.XtraGrid.Columns.GridColumn();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.transactionLineEditDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
+            this.transactionLineBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.grvTransLine = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colId1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNetValue = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -46,44 +47,54 @@
             this.colDiscountValue = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTotalValue1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colItemCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colItemPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemEditDtoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.transactionLineEditDtoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transactionLineBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvTransLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.SuspendLayout();
             // 
-            // gridControl1
+            // grvItem
             // 
-            this.gridControl1.DataSource = this.itemEditDtoBindingSource;
-            this.gridControl1.Location = new System.Drawing.Point(12, 31);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(224, 386);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.UseEmbeddedNavigator = true;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grvItem.DataSource = this.itemBindingSource;
+            this.grvItem.Location = new System.Drawing.Point(12, 31);
+            this.grvItem.MainView = this.gridView1;
+            this.grvItem.Name = "grvItem";
+            this.grvItem.Size = new System.Drawing.Size(224, 386);
+            this.grvItem.TabIndex = 0;
+            this.grvItem.UseEmbeddedNavigator = true;
+            this.grvItem.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            // 
+            // itemBindingSource
+            // 
+            this.itemBindingSource.DataSource = typeof(FuelGasStation.Blazor.Shared.Item.ItemEditDto);
             // 
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colItemPrice,
+            this.colPrice,
             this.colId,
             this.colCode,
             this.colDescription});
-            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.GridControl = this.grvItem;
             this.gridView1.Name = "gridView1";
             // 
-            // itemEditDtoBindingSource
+            // colPrice
             // 
-            this.itemEditDtoBindingSource.DataSource = typeof(FuelGasStation.Blazor.Shared.Item.ItemEditDto);
+            this.colPrice.Caption = "Price";
+            this.colPrice.FieldName = "Price";
+            this.colPrice.MinWidth = 25;
+            this.colPrice.Name = "colPrice";
+            this.colPrice.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
+            this.colPrice.Visible = true;
+            this.colPrice.VisibleIndex = 0;
+            this.colPrice.Width = 94;
             // 
             // colId
             // 
@@ -126,20 +137,20 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Quantity";
             // 
-            // transactionLineEditDtoBindingSource
+            // transactionLineBindingSource
             // 
-            this.transactionLineEditDtoBindingSource.DataSource = typeof(FuelGasStation.Blazor.Shared.TransactionLine.TransactionLineEditDto);
+            this.transactionLineBindingSource.DataSource = typeof(FuelGasStation.Blazor.Shared.TransactionLine.TransactionLineEditDto);
             // 
-            // gridControl2
+            // grvTransLine
             // 
-            this.gridControl2.DataSource = this.transactionLineEditDtoBindingSource;
-            this.gridControl2.Location = new System.Drawing.Point(261, 116);
-            this.gridControl2.MainView = this.gridView2;
-            this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(665, 283);
-            this.gridControl2.TabIndex = 3;
-            this.gridControl2.UseEmbeddedNavigator = true;
-            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grvTransLine.DataSource = this.transactionLineBindingSource;
+            this.grvTransLine.Location = new System.Drawing.Point(261, 116);
+            this.grvTransLine.MainView = this.gridView2;
+            this.grvTransLine.Name = "grvTransLine";
+            this.grvTransLine.Size = new System.Drawing.Size(665, 283);
+            this.grvTransLine.TabIndex = 3;
+            this.grvTransLine.UseEmbeddedNavigator = true;
+            this.grvTransLine.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
             // 
             // gridView2
@@ -151,7 +162,7 @@
             this.colDiscountValue,
             this.colTotalValue1,
             this.colItemCode});
-            this.gridView2.GridControl = this.gridControl2;
+            this.gridView2.GridControl = this.grvTransLine;
             this.gridView2.Name = "gridView2";
             // 
             // colId1
@@ -211,16 +222,6 @@
             this.colItemCode.VisibleIndex = 4;
             this.colItemCode.Width = 94;
             // 
-            // colItemPrice
-            // 
-            this.colItemPrice.Caption = "Item Price";
-            this.colItemPrice.FieldName = "ItemPrice";
-            this.colItemPrice.MinWidth = 25;
-            this.colItemPrice.Name = "colItemPrice";
-            this.colItemPrice.Visible = true;
-            this.colItemPrice.VisibleIndex = 0;
-            this.colItemPrice.Width = 94;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -267,17 +268,18 @@
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.gridControl2);
+            this.Controls.Add(this.grvTransLine);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.gridControl1);
+            this.Controls.Add(this.grvItem);
             this.Name = "TransForm";
             this.Text = "Adding Transaction Lines";
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            this.Load += new System.EventHandler(this.TransForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.grvItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemEditDtoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.transactionLineEditDtoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transactionLineBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvTransLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -295,7 +297,7 @@
         private TextBox textBox1;
         private Label label1;
         private BindingSource transactionLineEditDtoBindingSource;
-        private DevExpress.XtraGrid.Columns.GridColumn colItemPrice;
+        private DevExpress.XtraGrid.Columns.GridColumn colPrice;
         private DevExpress.XtraGrid.GridControl gridControl2;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraGrid.Columns.GridColumn colId1;
@@ -308,5 +310,9 @@
         private Label label3;
         private Button btnBack;
         private Button btnSave;
+        private DevExpress.XtraGrid.GridControl grvItem;
+        private BindingSource itemBindingSource;
+        private BindingSource transactionLineBindingSource;
+        private DevExpress.XtraGrid.GridControl grvTransLine;
     }
 }

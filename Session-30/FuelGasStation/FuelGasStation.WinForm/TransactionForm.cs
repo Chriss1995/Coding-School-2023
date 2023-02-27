@@ -1,5 +1,6 @@
 ﻿using FuelGasStation.Blazor.Shared.Transaction;
 using FuelGasStation.Blazor.Shared.TransactionLine;
+using FuelGasStation.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,13 +37,22 @@ namespace FuelGasStation.WinForm
         private void btnAddTrsasLine_Click(object sender, EventArgs e)
         {
             this.Hide();
-            TransactionForm transactionForm = new TransactionForm();
-            transactionForm.Show();
+            TransForm transForm = new TransForm();
+            transForm.Show();
         }
 
         private void TransactionForm_Load(object sender, EventArgs e)
         {
-         
+            SetControlProperties();
+        }
+        private async Task SetControlProperties()
+        {
+            transactions = await client.GetFromJsonAsync<List<TransactionListDto>>("transaction");
+            transactionBindingSource.DataSource = transactions;
+            grvTrans.DataSource = transactionBindingSource;
+            transactionLine = await client.GetFromJsonAsync<List<TransactionLineListDto>>("transactionLine");
+            transactionLineBindingSource.DataSource = transactionLine;
+            grvTransLine.DataSource = transactionLineBindingSource;
         }
 
     }
